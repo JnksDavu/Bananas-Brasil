@@ -86,6 +86,10 @@ button {
     padding: 0;
 }
 
+.rounded_circle{
+    width: 200px;
+}
+
 label {
     font-weight: 600;
     text-transform: uppercase;
@@ -2166,6 +2170,10 @@ span.type-tag {
 
 .browse-cat-2 .categories .icon .product-addbtn span i {
     font-size: 12px;
+}
+.card_cart{
+    width: 8%;
+    margin-left: 70%;
 }
 
 .banner-bottom-sec .info-box .info-box-wrapper {
