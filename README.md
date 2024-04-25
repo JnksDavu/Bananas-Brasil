@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # Bananas-Brasil
 Aplicação desenvolvida na aula de desenvolvimento Web pela Universidade Católica - Jaraguá do Sul 
 =======
@@ -10,3 +9,17 @@ Façam pedidos e pagamentos online;
 Acompanhem o status dos seus pedidos;
 Recebam as bananas em seus endereços.
 >>>>>>> f7e7cd915c4e1e9838de6c852fb2805ff791d12b
+
+Paginá Inicial:
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/d640c664-6066-46e9-8be3-d9dd4df32508)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/7bc2c5aa-770f-42ac-bbf3-999dd64cbb61)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/0c3d8412-1812-46e5-a7a7-b6123a06d323)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/90530bc6-b782-4827-8ae7-1cd5f9efe518)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/cc0cccc6-3a8a-4678-8aee-e9b8045e9b19)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/ebc860bf-89a6-4654-9798-41a8d2e1b4aa)
