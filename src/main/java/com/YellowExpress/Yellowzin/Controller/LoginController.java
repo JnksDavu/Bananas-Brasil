@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 public class LoginController {
-    @GetMapping("/login")
+    @GetMapping("/home")
     public String loginPage() {
         return "login"; // nome do arquivo (login.html)
     }

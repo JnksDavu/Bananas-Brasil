@@ -31,3 +31,18 @@ Paginá Inicial:
 
 - Produtos Novos e Diferencial.
 ![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/ebc860bf-89a6-4654-9798-41a8d2e1b4aa)
+
+
+-- BACK-END 
+
+CONFIGURAÇÕES
+
+- Instalar JDK e configurado nas variáveis de ambiente como JAVA_HOME
+
+- Instalar Maven e configurado nas variáveis de ambiente como Maven_HOME
+
+COMANDOS PARA RODAR O SERVIDOR:
+
+mvn install
+
+mvn spring-boot:run
