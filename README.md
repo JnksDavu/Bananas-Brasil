@@ -46,3 +46,7 @@ COMANDOS PARA RODAR O SERVIDOR:
 mvn install
 
 mvn spring-boot:run
+
+COMANDO PARA ACESSAR TERMINAL DO BANCO:
+
+-localhost/8080/h2-console
