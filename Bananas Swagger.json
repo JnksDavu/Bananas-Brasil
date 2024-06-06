@@ -1,0 +1,295 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Api de Integração Bananas Brasil",
+    "version": "1.0",
+    "title": "Api de Integração Bananas Brasil",
+    "x-api-name": "Api base"
+  },
+  "host": "localhost",
+  "basePath": "/api",
+  "tags": [
+    {
+      "name": "ApiBase",
+      "x-internal-name": "Bananas Brasil",
+      "description": "Api de Integração Bananas Brasil"
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/clientes": {
+      "get": {
+        "tags": [
+          "ApiBase"
+        ],
+        "summary": "Importar",
+        "description": "",
+        "operationId": "Importar",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DadosCliente"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Erro"
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        },
+        "security": [
+          {
+            "csw_auth": []
+          }
+        ]
+      },
+      "post": {
+        "tags": [
+          "ApiBase"
+        ],
+        "summary": "Cadastra",
+        "description": "",
+        "operationId": "Cadastrar",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "gravacaodeClientes",
+            "description": "Dados do Cliente",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/DadosCliente"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "401": {
+            "description": "Unauthorized",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        },
+        "security": [
+          {
+            "csw_auth": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "ApiBase"
+        ],
+        "summary": "Deletar",
+        "description": "",
+        "operationId": "Deletar",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DadosClienteRet"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Erro"
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        },
+        "security": [
+          {
+            "csw_auth": []
+          }
+        ]
+      },
+      "put": {
+        "tags": [
+          "ApiBase"
+        ],
+        "summary": "Alterar",
+        "description": "",
+        "operationId": "Alterar",
+        "consumes": [
+          "application/json"
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/DadosClienteRet"
+            }
+          },
+          "400": {
+            "description": "Bad Request",
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/definitions/Erro"
+              }
+            }
+          },
+          "429": {
+            "description": "Too Many Requests"
+          },
+          "500": {
+            "description": "Internal Server Error",
+            "schema": {
+              "$ref": "#/definitions/Erro"
+            }
+          }
+        },
+        "security": [
+          {
+            "csw_auth": []
+          }
+        ]
+      }
+    }
+  },
+  "securityDefinitions": {
+    "csw_auth": {
+      "type": "apiKey",
+      "name": "Authorization",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "Erro": {
+      "type": "object",
+      "properties": {
+        "mensagem": {
+          "type": "string",
+          "description": "Mensagem de erro"
+        }
+      }
+    },
+    "DadosCliente": {
+      "type": "object",
+      "description": "Dados Cliente",
+      "properties": {
+        "dadosClientes": {
+          "type": "array",
+          "description": "Array de Dados Do Cliente",
+          "items": {
+            "$ref": "#/definitions/Cliente"
+          }
+        }
+      }
+    },
+    "Cliente": {
+      "type": "object",
+      "description": "Campos Cliente",
+      "properties": {
+        "Usuario": {
+          "type": "string",
+          "description": "Login"
+        },
+        "Senha": {
+          "type": "integer",
+          "description": "Senha do Login"
+        },
+        "Nome": {
+          "type": "string",
+          "description": "Nome de Usuario"
+        }
+      }
+    },
+    "DadosClienteRet": {
+      "type": "object",
+      "description": "Dados de retorno do Cliente",
+      "properties": {
+        "dadosCliente": {
+          "type": "array",
+          "description": "Array de Dados Retorno Cliente",
+          "items": {
+            "$ref": "#/definitions/ClienteRet"
+          }
+        }
+      }
+    },
+    "ClienteRet": {
+      "type": "object",
+      "description": "Campos retorno Cliente",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "description": "Id do Usuario"
+        },
+        "Usuario": {
+          "type": "string",
+          "description": "Login"
+        },
+        "Senha": {
+          "type": "integer",
+          "description": "Senha do Login"
+        },
+        "Nome": {
+          "type": "string",
+          "description": "Nome de Usuario"
+        }
+      }
+    }
+  }
+}
