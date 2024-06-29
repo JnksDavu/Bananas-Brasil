@@ -19,6 +19,7 @@ public class Produtos {
     private String uniMedida;
     private String classificacao;
     private String avaliacao;
+    private String img;
 
     @ManyToMany
     private Set<Clientes> clientes = new HashSet<>();
@@ -51,13 +52,18 @@ public class Produtos {
         return avaliacao;
     }
 
-    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String classificacao,String avaliacao){
+    public String getImg(){
+        return img;
+    }
+
+    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String classificacao,String avaliacao, String img){
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.valorProduto = valorProduto;
         this.uniMedida = uniMedida;
         this.classificacao = classificacao;
         this.avaliacao = avaliacao;
+        this.img = img;
     }
     
     public Set<Clientes> getClientes(){

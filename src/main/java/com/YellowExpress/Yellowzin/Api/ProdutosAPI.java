@@ -43,7 +43,7 @@ public class ProdutosAPI {
         Optional<Produtos> produtosOptional = ProdutosRepository.findById(id);
         if (produtosOptional.isPresent()) {
             Produtos produtosExistente = produtosOptional.get();
-            produtosExistente.cadastrarProduto(novaprodutos.getNomeProduto(),novaprodutos.getDescricaoProduto(),novaprodutos.getValorProduto(),novaprodutos.getUniMedidaProduto(),novaprodutos.getClassificacaoProduto(),novaprodutos.getAvaliacaoProduto());
+            produtosExistente.cadastrarProduto(novaprodutos.getNomeProduto(),novaprodutos.getDescricaoProduto(),novaprodutos.getValorProduto(),novaprodutos.getUniMedidaProduto(),novaprodutos.getClassificacaoProduto(),novaprodutos.getAvaliacaoProduto(),novaprodutos.getImg());
             Produtos produtosAtualizada = ProdutosRepository.save(produtosExistente);
             return ResponseEntity.ok(produtosAtualizada);
         } else {
