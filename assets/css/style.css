@@ -90,6 +90,21 @@ button {
     width: 200px;
 }
 
+
+.circular {
+    width: 450px; 
+    height: 150px; 
+    border-radius: 30%;
+    object-fit: cover;
+}
+
+.circularLinkedin {
+    width: 150px; 
+    height: 100px; 
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 label {
     font-weight: 600;
     text-transform: uppercase;
