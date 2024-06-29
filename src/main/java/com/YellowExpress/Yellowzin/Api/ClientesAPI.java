@@ -11,8 +11,6 @@ import org.springframework.web.bind.annotation.*;
 import com.YellowExpress.Yellowzin.Class.Clientes;
 import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
 
-// Opa
-
 @RestController
 @RequestMapping("/api/clientes")
 public class ClientesAPI {
@@ -45,7 +43,7 @@ public class ClientesAPI {
             return ResponseEntity.notFound().build();
         }
 
-        clienteExistente.criarUsuarioCliente(null, null, null);
+        clienteExistente.criarUsuarioCliente(null, null, null,null,null,null,0);
         Clientes clienteAtualizado = clientesRepository.save(clienteExistente);
         return ResponseEntity.ok(clienteAtualizado);
     }

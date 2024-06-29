@@ -120,6 +120,23 @@ button {
   min-height: 100vh;
 }
 
+.error-input {
+  border-color: #f00; /* Cor da borda para indicar erro */
+}
+
+.error-container {
+  display: flex;
+  align-items: center;
+  margin-top: 5px; /* Espaçamento acima da mensagem de erro */
+}
+
+.error-message {
+  color: #f00; /* Cor do texto da mensagem de erro */
+  font-size: 14px; /* Tamanho da fonte da mensagem de erro */
+  margin-right: 10px; /* Espaçamento à direita da mensagem de erro */
+}
+
+
 body {
   font-family: "Roboto", "Arial", "Helvetica Neue", sans-serif;
   font-weight: 400;
@@ -169,11 +186,11 @@ h6 {
    #SPACING
    ========================================================================== */
 .p-t-100 {
-  padding-top: 100px;
+  padding-top: 60px;
 }
 
 .p-t-180 {
-  padding-top: 180px;
+  padding-top: 50px;
 }
 
 .p-t-20 {
