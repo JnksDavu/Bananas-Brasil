@@ -322,7 +322,7 @@ input {
 .input-group {
   position: relative;
   margin-bottom: 32px;
-  border-bottom: 1px solid #e5e5e5;
+  
 }
 
 .input-icon {
@@ -344,6 +344,7 @@ input {
   color: #666;
   font-size: 16px;
   font-weight: 500;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 .input--style-2::-webkit-input-placeholder {

@@ -20,7 +20,7 @@
     <!-- Vendor CSS-->
     <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
     <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-
+    
     <!-- Main CSS-->
     <link href="../assets/css/cadastro.css" rel="stylesheet" media="all">
     <!-- Fav and touch icons -->
@@ -78,19 +78,21 @@
                     <h2 class="title">Crie sua conta</h2>
                     <form id="registrationForm">
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Nome" name="name">
-                        </div>        
+                            <input id="name" class="input--style-2" type="text" placeholder="Nome" name="name">
+                            <small id="nameError" class="error-message"></small>
+                        </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Data de Nascimento" name="birthday">
+                                    <input id="birthday" class="input--style-2 js-datepicker" type="date" placeholder="Data de Nascimento" name="birthday">
                                     <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
+                                    <small id="birthdayError" class="error-message"></small>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
                                     <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
+                                        <select id="gender" name="gender">
                                             <option disabled="disabled" selected="selected">Gênero</option>
                                             <option>Homem</option>
                                             <option>Mulher</option>
@@ -98,27 +100,33 @@
                                         </select>
                                         <div class="select-dropdown"></div>
                                     </div>
+                                    <small id="genderError" class="error-message"></small>
                                 </div>
                             </div>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-mail" name="email">
+                            <input id="email" class="input--style-2" type="text" placeholder="E-mail" name="email">
+                            <small id="emailError" class="error-message"></small>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-2" type="password" placeholder="Senha" name="password">
+                            <input id="password" class="input--style-2" type="password" placeholder="Senha" name="password">
+                            <small id="passwordError" class="error-message"></small>
                         </div>
                         <div class="input-group">
-                            <input class="input--style-2" type="password" placeholder="Confirme sua senha" name="confirmPassword">
+                            <input id="confirmPassword" class="input--style-2" type="password" placeholder="Confirme sua senha" name="confirmPassword">
+                            <small id="confirmPasswordError" class="error-message"></small>
                         </div>
                         <div class="row row-space">
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2" type="number" placeholder="CEP" name="res_code">
+                                    <input id="res_code" class="input--style-2" type="number" placeholder="CEP" name="res_code">
+                                    <small id="res_codeError" class="error-message"></small>
                                 </div>
                             </div>
                             <div class="col-2">
                                 <div class="input-group">
-                                    <input class="input--style-2" type="number" placeholder="Número" name="NumeroCasa">
+                                    <input id="NumeroCasa" class="input--style-2" type="number" placeholder="Número" name="NumeroCasa">
+                                    <small id="NumeroCasaError" class="error-message"></small>
                                 </div>
                             </div>
                         </div>
