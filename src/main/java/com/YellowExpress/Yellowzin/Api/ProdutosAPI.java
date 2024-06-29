@@ -2,6 +2,8 @@ package com.YellowExpress.Yellowzin.Api;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,39 +14,48 @@ import org.springframework.web.bind.annotation.*;
 import com.YellowExpress.Yellowzin.Class.Produtos;
 import com.YellowExpress.Yellowzin.Repository.ProdutosRepository;
 
-
 @RestController
 @RequestMapping("/api/Produtos")
 public class ProdutosAPI {
 
     @Autowired
-    private ProdutosRepository ProdutosRepository;
+    private ProdutosRepository produtosRepository;
 
     @PostMapping("/")
-    public ResponseEntity<Produtos> criarprodutos(@Validated @RequestBody Produtos produtos) {
-        Produtos novaprodutos = ProdutosRepository.save(produtos);
-        return new ResponseEntity<>(novaprodutos, HttpStatus.CREATED);
+    public ResponseEntity<List<Produtos>> criarProdutos(@Validated @RequestBody List<Produtos> produtosList) {
+        Iterable<Produtos> novaListaProdutosIterable = produtosRepository.saveAll(produtosList);
+        List<Produtos> novaListaProdutos = StreamSupport.stream(novaListaProdutosIterable.spliterator(), false)
+                                                        .collect(Collectors.toList());
+        return new ResponseEntity<>(novaListaProdutos, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Produtos> buscarprodutosPorId(@PathVariable Long id) {
-        Optional<Produtos> produtosOptional = ProdutosRepository.findById(id);
+    public ResponseEntity<Produtos> buscarProdutosPorId(@PathVariable Long id) {
+        Optional<Produtos> produtosOptional = produtosRepository.findById(id);
         return produtosOptional.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
     @GetMapping("/")
     public ResponseEntity<List<Produtos>> buscarTodasProdutos() {
-        List<Produtos> Produtos = (List<Produtos>) ProdutosRepository.findAll();
-        return ResponseEntity.ok(Produtos);
+        List<Produtos> produtos = (List<Produtos>) produtosRepository.findAll();
+        return ResponseEntity.ok(produtos);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Produtos> atualizarprodutos(@PathVariable Long id, @Validated @RequestBody Produtos novaprodutos) {
-        Optional<Produtos> produtosOptional = ProdutosRepository.findById(id);
+    public ResponseEntity<Produtos> atualizarProdutos(@PathVariable Long id, @Validated @RequestBody Produtos novaProdutos) {
+        Optional<Produtos> produtosOptional = produtosRepository.findById(id);
         if (produtosOptional.isPresent()) {
             Produtos produtosExistente = produtosOptional.get();
-            produtosExistente.cadastrarProduto(novaprodutos.getNomeProduto(),novaprodutos.getDescricaoProduto(),novaprodutos.getValorProduto(),novaprodutos.getUniMedidaProduto(),novaprodutos.getClassificacaoProduto(),novaprodutos.getAvaliacaoProduto(),novaprodutos.getImg());
-            Produtos produtosAtualizada = ProdutosRepository.save(produtosExistente);
+            produtosExistente.cadastrarProduto(
+                novaProdutos.getNomeProduto(),
+                novaProdutos.getDescricaoProduto(),
+                novaProdutos.getValorProduto(),
+                novaProdutos.getUniMedidaProduto(),
+                novaProdutos.getClassificacaoProduto(),
+                novaProdutos.getAvaliacaoProduto(),
+                novaProdutos.getImg()
+            );
+            Produtos produtosAtualizada = produtosRepository.save(produtosExistente);
             return ResponseEntity.ok(produtosAtualizada);
         } else {
             return ResponseEntity.notFound().build();
@@ -52,13 +63,12 @@ public class ProdutosAPI {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> excluirprodutos(@PathVariable Long id) {
-        if (ProdutosRepository.existsById(id)) {
-            ProdutosRepository.deleteById(id);
+    public ResponseEntity<Void> excluirProdutos(@PathVariable Long id) {
+        if (produtosRepository.existsById(id)) {
+            produtosRepository.deleteById(id);
             return ResponseEntity.noContent().build();
         } else {
             return ResponseEntity.notFound().build();
         }
     }
 }
-
