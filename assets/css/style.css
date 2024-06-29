@@ -91,12 +91,27 @@ button {
 }
 
 
+.row.blog-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 110vh; 
+    margin: 0 auto;
+}
+
+
+.qr-code {
+    max-width: 180px; /* Ajuste conforme necessário */
+    height: auto;
+}
+
 .circular {
     width: 450px; 
     height: 150px; 
-    border-radius: 30%;
+    border-radius:30%;
     object-fit: cover;
 }
+
 
 .circularLinkedin {
     width: 150px; 
