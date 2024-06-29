@@ -2,56 +2,45 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags-->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Colorlib Templates">
-    <meta name="author" content="Colorlib">
-    <meta name="keywords" content="Colorlib Templates">
-
-    <!-- Title Page-->
-    <title>Cadastro</title>
-
-    <!-- Icons font CSS-->
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <!-- Font special for pages-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
-
-    <!-- Vendor CSS-->
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/datepicker/daterangepicker.css" rel="stylesheet" media="all">
-
-    <!-- Main CSS-->
-    <link href="../assets/css/cadastro.css" rel="stylesheet" media="all">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="keywords" content="#">
+    <meta name="description" content="#">
+    <title>Weedo | Login</title>
     <!-- Fav and touch icons -->
     <link rel="apple-touch-icon-precomposed" sizes="144x144" href="#">
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="#">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="#">
     <link rel="apple-touch-icon-precomposed" href="#">
     <link rel="shortcut icon" href="#">
-    <link href="../assets/css/responsive.css" rel="stylesheet">
-    <link href="../assets/css/style.css" rel="stylesheet">
-    <link href="../assets/css/nice-select.css" rel="stylesheet">
-    <!-- Pogo Slider -->
-    <link href="../assets/css/pogo-slider.css" rel="stylesheet">
-    <!-- Custom Stylesheet -->
-     <!-- Fontawesome -->
-    <link href="../assets/css/font-awesome.css" rel="stylesheet">
+    <!-- Bootstrap -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fontawesome -->
+    <link href="/assets/css/font-awesome.css" rel="stylesheet">
     <!-- Flaticons -->
-    <link href="../assets/css/font/flaticon.css" rel="stylesheet">
+    <link href="/assets/css/font/flaticon.css" rel="stylesheet">
     <!-- Swiper Slider -->
-    <link href="../assets/css/swiper.min.css" rel="stylesheet">
+    <link href="/assets/css/swiper.min.css" rel="stylesheet">
     <!-- Slick Slider -->
-    <link href="../assets/css/slick.css" rel="stylesheet" />
+    <link href="/assets/css/slick.css" rel="stylesheet" />
     <!-- Range Slider -->
-    <link href="../assets/css/ion.rangeSlider.min.css" rel="stylesheet">
+    <link href="/assets/css/ion.rangeSlider.min.css" rel="stylesheet">
     <!-- magnific popup -->
-    <link href="../assets/css/magnific-popup.css" rel="stylesheet">
-    <link href="../assets/css/cadastro.css" rel="stylesheet">
+    <link href="/assets/css/magnific-popup.css" rel="stylesheet">
+    <!-- Nice Select -->
+    <link href="/assets/css/nice-select.css" rel="stylesheet">
+    <!-- Pogo Slider -->
+    <link href="/assets/css/pogo-slider.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <!-- Custom Responsive -->
+    <link href="/assets/css/responsive.css" rel="stylesheet">
+    <!-- place -->
 </head>
 
 <body>
+    <!-- Navigation Start -->
     <div class="header">
         <header class="full-width">
             <div class="container-fluid">
@@ -60,7 +49,7 @@
                         <!-- logo -->
                         <div class="logo mainNavCol">
                             <a href="index.html">
-                                <img src="../assets/img/logo.png" class="img-fluid" alt="Logo">
+                                <img src="assets/img/logo.png" class="img-fluid" alt="Logo">
                             </a>
                         </div>
                         <!-- logo -->
@@ -286,7 +275,7 @@
                             <!-- user account -->
                             <div class="user-details p-relative">
                                 <a href="#" class="text-light-white fw-500">
-                                    <img src="../assets/img/user-1.png" class="rounded-circle" alt="userimg">
+                                    <img src="assets/img/user-1.png" class="rounded-circle" alt="userimg">
                                 </a>
                                 <div class="user-dropdown">
                                     <ul>
@@ -455,7 +444,7 @@
                                     <div class="product-detail">
                                         <a href="#">
                                             <div class="img-box">
-                                                <img src="../assets/img/shop-1.png" class="rounded" alt="image">
+                                                <img src="assets/img/shop-1.png" class="rounded" alt="image">
                                             </div>
                                             <div class="product-about">
                                                 <h6 class="text-light-black">Little Ghost</h6>
@@ -600,62 +589,53 @@
         </header>
     </div>
     <!-- Navigation End -->
-    <div class="page-wrapper bg-ylw p-t-180 p-b-100 font-robo">
-        <div class="wrapper wrapper--w960">
-            <div class="card card-2">
-                <div class="card-heading"></div>
-                <div class="card-body">
-                    <h2 class="title">Crie sua conta</h2>
-                    <form method="POST">
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="Nome" name="name">
-                        </div>        
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2 js-datepicker" type="text" placeholder="Data de Nascimento" name="birthday">
-                                    <i class="zmdi zmdi-calendar-note input-icon js-btn-calendar"></i>
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <div class="rs-select2 js-select-simple select--no-search">
-                                        <select name="gender">
-                                            <option disabled="disabled" selected="selected">Gênero</option>
-                                            <option>Homem</option>
-                                            <option>Mulher</option>
-                                            <option>Outro</option>
-                                        </select>
-                                        <div class="select-dropdown"></div>
+    <div class="inner-wrapper">
+        <div class="container-fluid no-padding">
+            <div class="row no-gutters overflow-auto" style="background-color: #e0f6e3;">
+                
+                <div class="container">
+                    <div class="containerLogin">
+                        <div class="content first-content">
+                            <div class="first-column">
+                                <p class="description description-primary"></p>
+                                <p class="description description-primary"></p>
+                            </div>    
+                            <div class="col-md-6">
+                            <div class="section-2 user-page main-padding">
+                                <div class="login-sec">
+                                    <div class="login-box">
+                                        <form>
+                                            <h4 class="text-light-black fw-600">Entre com sua conta!</h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form-group">
+                                                        <label class="text-light-white fs-14">Email</label>
+                                                        <input type="email" name="#" class="form-control form-control-submit" placeholder="email" required>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label class="text-light-white fs-14">Senha</label>
+                                                        <input type="password" id="password-field" name="#" class="form-control form-control-submit" value="password" placeholder="Password" required>
+                                                        <div data-name="#password-field" class="fa fa-fw fa-eye field-icon toggle-password"></div>
+                                                    </div>
+                                                    <div class="form-group checkbox-reset">
+                                                        <label class="custom-checkbox mb-0">
+                                                            <input type="checkbox" name="#"><a href="#">Esqueceu a senha?</a>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button type="submit" class="btn-second btn-submit full-width">Logar</button>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <button id="signin" class="btn-second btn-submit full-width">Nova Conta</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="text" placeholder="E-mail" name="email">
                         </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="password" placeholder="Senha" name="password">
-                        </div>
-                        <div class="input-group">
-                            <input class="input--style-2" type="password" placeholder="Confirme sua senha" name="password">
-                        </div>
-                        <div class="row row-space">
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2" type="number" placeholder="CEP" name="res_code">
-                                </div>
-                            </div>
-                            <div class="col-2">
-                                <div class="input-group">
-                                    <input class="input--style-2" type="number" placeholder="Número" name="NumeroCasa">
-                                </div>
-                            </div>
-                        </div>
-                        <div class="p-t-30">
-                            <button class="btn btn--radius btn--green" type="submit">Concluir</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>
@@ -688,60 +668,160 @@
                             </ul>
                         </div>
                     </div>
+                   
+                    
+                       
+                   
                 </div>
             </div>
         </div>
        
     </footer>
     <!-- Footer End -->
+    <!-- Address Modal Start -->
+    <div class="modal fade" id="address-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title fw-700">Change Address</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="location-picker">
+                        <input type="text" class="form-control" placeholder="Enter a new address">
+                    </div>
+                    <div class="search-results">
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Brooklyn, NY 10041</h6>
+                                <span>Added: January 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Connecticut, NY 10041</h6>
+                                <span>Added: January 31, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Malibou, NY 10041</h6>
+                                <span>Added: February 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Florida, NY 10041</h6>
+                                <span>Added: January 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>CA, NY 10041</h6>
+                                <span>Added: June 04, 2022</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Address Modal End -->
+    <!-- Search Modal Start -->
+    <div class="modal fade" id="search-box">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title fw-700">Search</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="search-box p-relative full-width">
+                        <input type="text" class="form-control" placeholder="Sativa, Indica, Hybride">
+                    </div>
+                    <div class="search-results">
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Exploring cannabis</h6>
+                                <span>January 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Weed is becoming legal</h6>
+                                <span>January 31, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>How to get into weed</h6>
+                                <span>February 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Exploring cannabis</h6>
+                                <span>January 24, 2022</span>
+                            </div>
+                        </a>
+                        <a href="#" class="search-result">
+                            <i class="fas fa-history"></i>
+                            <div class="search-result-inner">
+                                <h6>Weed is becoming legal</h6>
+                                <span>June 04, 2022</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Search Modal End -->
     <!-- Place all Scripts Here -->
     <!-- jQuery -->
-    <script src="../assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.min.js"></script>
     <!-- Jquery 2 -->
-    <script src="../assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
     <!-- Popper -->
-    <script src="../assets/js/popper.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
     <!-- Bootstrap -->
-    <script src="../assets/js/bootstrap.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
     <!-- Range Slider -->
-    <script src="../assets/js/ion.rangeSlider.min.js"></script>
+    <script src="assets/js/ion.rangeSlider.min.js"></script>
     <!-- Swiper Slider -->
-    <script src="../assets/js/swiper.min.js"></script>
+    <script src="assets/js/swiper.min.js"></script>
     <!-- Pogo Slider -->
-    <script src="../assets/js/jquery.pogo-slider.js"></script>
+    <script src="assets/js/jquery.pogo-slider.js"></script>
     <!-- Nice Select -->
-    <script src="../assets/js/jquery.nice-select.min.js"></script>
+    <script src="assets/js/jquery.nice-select.min.js"></script>
     <!-- magnific popup -->
-    <script src="../assets/js/jquery.magnific-popup.min.js"></script>
+    <script src="assets/js/jquery.magnific-popup.min.js"></script>
     <!-- Maps -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnd9JwZvXty-1gHZihMoFhJtCXmHfeRQg"></script>
     <!-- Wow js -->
-    <script src="../assets/js/wow.min.js"></script>
+    <script src="assets/js/wow.min.js"></script>
     <!-- sticky sidebar -->
-    <script src="../assets/js/sticksy.js"></script>
+    <script src="assets/js/sticksy.js"></script>
     <!-- Slick Slider -->
-    <script src="../assets/js/slick.min.js"></script>
+    <script src="assets/js/slick.min.js"></script>
     <!--====== inview js ======-->
-    <script src="../assets/js/jquery.inview.min.js"></script>
+    <script src="assets/js/jquery.inview.min.js"></script>
     <!--====== counterup js ======-->
-    <script src="../assets/js/jquery.countTo.js"></script>
+    <script src="assets/js/jquery.countTo.js"></script>
     <!--====== easypiechart js ======-->
-    <script src="../assets/js/jquery.easypiechart.js"></script>
+    <script src="assets/js/jquery.easypiechart.js"></script>
     <!-- organza Js -->
-    <script src="../assets/js/Weedo.js"></script>
+    <script src="assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
-    <!-- Jquery JS-->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <!-- Vendor JS-->
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="vendor/datepicker/moment.min.js"></script>
-    <script src="vendor/datepicker/daterangepicker.js"></script>
-
-    <!-- Main JS-->
-    <script src="js/global.js"></script>
-
-</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</body>
 
 </html>
-<!-- end document-->
