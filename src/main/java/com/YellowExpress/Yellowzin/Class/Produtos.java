@@ -56,6 +56,13 @@ public class Produtos {
         return img;
     }
 
+    public Produtos() {
+    }
+
+    public Produtos(Long id) {
+        this.id = id;
+    }
+
     public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String classificacao,String avaliacao, String img){
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
@@ -66,7 +73,5 @@ public class Produtos {
         this.img = img;
     }
     
-    public Set<Clientes> getClientes(){
-        return clientes;
-    }
+    
 }

@@ -55,6 +55,15 @@ public class Clientes {
         return Numero_casa;
     }
 
+    public Clientes() {
+        
+    }
+    
+
+    public Clientes(Long id) {
+        this.id = id;
+    }
+
     
 
     //Criar um usuario, não precisa declarar os setter se são definidos diretamente no usuario

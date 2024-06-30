@@ -9,32 +9,32 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
 import com.YellowExpress.Yellowzin.Class.Clientes;
-import com.YellowExpress.Yellowzin.Repository.*;
+import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
+
+import java.util.Date;
 
 @SpringBootTest
 class ClientesTests {
 
-	@Autowired
+    @Autowired
     private ClientesRepository repository;
 
     @Test
-    public void testSave(){
+    public void testSave() {
         Clientes clientes = new Clientes();
-        clientes.criarUsuarioCliente("clienteUm","df","dfgd");
+        clientes.criarUsuarioCliente("clienteUm", "df", "dfgd", "12345-678", new Date(), "Masculino", 1L); // Atualizado para incluir todos os parâmetros
 
         repository.save(clientes);
 
-        clientes.alterarNomeCliente("Trocado");//editado cliente
+        clientes.alterarNomeCliente("Trocado");
         repository.save(clientes);
 
-        Clientes clientesEditado = repository.findById(clientes.getId()).orElse(null); //buscando cliente do bd para verificar se foi alterada
+        Clientes clientesEditado = repository.findById(clientes.getId()).orElse(null);
         assertNotNull(clientesEditado);
         assertEquals("Trocado", clientesEditado.getNome());
 
         repository.deleteById(clientes.getId());
-        Clientes clientesExclusão = repository.findById(clientes.getId()).orElse(null);//método para exluir clientes
-        assertNull(clientesExclusão);//se não for nullo falha o teste semelhante aos assets a cima
+        Clientes clientesExclusão = repository.findById(clientes.getId()).orElse(null);
+        assertNull(clientesExclusão);
     }
-
 }
-

@@ -1,6 +1,6 @@
 package com.YellowExpress.Yellowzin;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.junit.jupiter.api.Assertions.assertNull;
 
@@ -8,12 +8,18 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
-import com.YellowExpress.Yellowzin.Class.*;
-import com.YellowExpress.Yellowzin.Repository.*;
+import com.YellowExpress.Yellowzin.Class.Clientes;
+import com.YellowExpress.Yellowzin.Class.Produtos;
+import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
+import com.YellowExpress.Yellowzin.Repository.ProdutosRepository;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 @SpringBootTest
-class produtossTests {
-    
+class ProdutosTests {
+
     @Autowired
     private ProdutosRepository produtosRepository;
 
@@ -21,23 +27,24 @@ class produtossTests {
     private ClientesRepository clientesRepository;
 
     @Test
-    public void testSaveAndEdit(){
+    public void testSaveAndEdit() throws ParseException {
         Clientes cliente = new Clientes();
-        cliente.criarUsuarioCliente("clienteUm","df","dfgd");
 
+        SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        Date dataNascimento = dateFormat.parse("2023-12-01");
+
+        cliente.criarUsuarioCliente("clienteUm", "df", "dfgd", "12345-678", dataNascimento, "Masculino", 1L);
         clientesRepository.save(cliente);
 
         Produtos produtos = new Produtos();
-        produtos.cadastrarProduto("produtosTeste", "dfddsfsdfsdf", 100);
+        produtos.cadastrarProduto("produtosTeste", "dfddsfsdfsdf", 100, "Fabricante", "Categoria", "Unidade", "url-da-imagem");
         produtosRepository.save(produtos);
 
-        produtosRepository.save(produtos);
-
-        Produtos produtosEditada = produtosRepository.findById(produtos.getId()).orElse(null); //buscando produtos do bd para verificar se foi alterada
+        Produtos produtosEditada = produtosRepository.findById(produtos.getId()).orElse(null);
         assertNotNull(produtosEditada);
 
         produtosRepository.deleteById(produtos.getId());
-        Produtos produtossExclusão = produtosRepository.findById(produtos.getId()).orElse(null);//método para exluir produtoss
-        assertNull(produtossExclusão);//se não for nullo falha o teste semelhante aos assets a cima
+        Produtos produtosExclusão = produtosRepository.findById(produtos.getId()).orElse(null);
+        assertNull(produtosExclusão);
     }
 }
