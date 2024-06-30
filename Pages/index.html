@@ -198,14 +198,65 @@
                                             </span>
                                         </div>
                                     </div>
-                                    <div class="item-btm">                       
+                                </div>
+                            </div>
+                        </div>
+                    </div>                    
+                    <div class="col-lg-4 col-md-6" id="fudge-container">
+                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                            <div class="item sativa">
+                                <div class="item-inner">
+                                    <div class="product_img">
+                                        <a href="#">
+                                            <img id="fudge-img" src="" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="item-info">
+                                        <h4><a href="product-details.html?id=18" id="fudge-name"></a></h4>
+                                        <p id="fudge-description"></p>
+                                        <div class="item-price-wrpr">
+                                            <span class="price">R$<span id="fudge-price"></span></span>
+                                            <span class="cart listing-cart">
+                                                <a href="#">
+                                                    <img src="../assets/img/cart.png" alt="img">
+                                                </a>
+                                            </span>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>                  
+                    </div>
+                    
+                    <div class="col-lg-4 col-md-6" id="smoothie-container">
+                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                            <div class="item sativa">
+                                <div class="item-inner">
+                                    <div class="product_img">
+                                        <a href="product-details.html?id=19">
+                                            <img id="smoothie-img" src="" alt="product image">
+                                        </a>
+                                    </div>
+                                    <div class="item-info">
+                                        <h4><a href="product-details.html?id=19" id="smoothie-name"></a></h4>
+                                        <p id="smoothie-description"></p>
+                                        <div class="item-price-wrpr">
+                                            <span class="price">R$<span id="smoothie-price"></span></span>
+                                            <span class="cart listing-cart">
+                                                <a href="#">
+                                                    <img src="../assets/img/cart.png" alt="img">
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
                     <script>
                         document.addEventListener("DOMContentLoaded", function() {
+                            // Bala de Banana
                             fetch('http://localhost:8080/api/Produtos/3')
                                 .then(response => response.json())
                                 .then(data => {
@@ -215,65 +266,35 @@
                                     document.getElementById('product-img').src = data.img;
                                     document.getElementById('product-img').alt = data.nomeProduto;
                                 })
-                                .catch(error => console.error('Erro ao buscar o produto:', error));
+                                .catch(error => console.error('Erro ao buscar o produto Bala de Banana:', error));
+                    
+                            // Fudge de Banana
+                            fetch('http://localhost:8080/api/Produtos/18')
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('fudge-name').textContent = data.nomeProduto;
+                                    document.getElementById('fudge-description').textContent = data.descricaoProduto;
+                                    document.getElementById('fudge-price').textContent = data.valorProduto.toFixed(2);
+                                    document.getElementById('fudge-img').src = data.img;
+                                    document.getElementById('fudge-img').alt = data.nomeProduto;
+                                })
+                                .catch(error => console.error('Erro ao buscar o produto Fudge de Banana:', error));
+                    
+                            // Smoothie de Banana
+                            fetch('http://localhost:8080/api/Produtos/19')
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('smoothie-name').textContent = data.nomeProduto;
+                                    document.getElementById('smoothie-description').textContent = data.descricaoProduto;
+                                    document.getElementById('smoothie-price').textContent = data.valorProduto.toFixed(2);
+                                    document.getElementById('smoothie-img').src = data.img;
+                                    document.getElementById('smoothie-img').alt = data.nomeProduto;
+                                })
+                                .catch(error => console.error('Erro ao buscar o produto Smoothie de Banana:', error));
                         });
-                    </script>                                 
-                    <div class="col-lg-4 col-md-6">
-                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
-                            <div class="item sativa">
-                                <div class="item-inner">
-                                    <div class="product_img">
-                                        <a href="#">
-                                            <img src="https://www.inspirationalmomma.com/wp-content/uploads/2022/12/Banana-Fudge-1200x1200-1-720x540.jpg" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="item-info">
-                                        <h4> <a href="product-details.html">Fudge de Banana</a> </h4>
-                                        <p>Fudge cremoso de banana</p>
-                                        <div class="item-price-wrpr">
-                                            <span class="price">R$12.00<span class="strike">R$20.00</span>
-                                            </span>
-                                            <span class="cart listing-cart">
-                                                <a href="#">
-                                                    <img src="../assets/img/cart.png" alt="img">
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Product End -->
-                    <!-- Product Start -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
-                            <div class="item sativa">
-                                <div class="item-inner">
-                                    <div class="product_img">
-                                        <a href="#">
-                                            <img src="https://i.panelinha.com.br/i1/228-q-7995-smoothie-de-manga-e-banana-com-iogurte.webp" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="item-info">
-                                        <h4> <a href="product-details.html">Smoothie de Banana</a> </h4>
-                                        <p>Smoothie de banana natural</p>
-                                        <div class="item-price-wrpr">
-                                            <span class="price">R$5.00<span class="strike">R$10.00</span>
-                                            </span>
-                                            <span class="cart listing-cart">
-                                                <a href="#">
-                                                    <img src="../assets/img/cart.png" alt="img">
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                   
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    </script>
+                    
+                    
                     <!-- Product End -->
                 </div>
             </div>
