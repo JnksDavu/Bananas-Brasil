@@ -50,9 +50,9 @@ public class ProdutosAPI {
                 novaProdutos.getNomeProduto(),
                 novaProdutos.getDescricaoProduto(),
                 novaProdutos.getValorProduto(),
-                novaProdutos.getUniMedidaProduto(),
-                novaProdutos.getClassificacaoProduto(),
-                novaProdutos.getAvaliacaoProduto(),
+                novaProdutos.getUniMedida(),
+                novaProdutos.getCategoria(),
+                novaProdutos.getAvaliacao(),
                 novaProdutos.getImg()
             );
             Produtos produtosAtualizada = produtosRepository.save(produtosExistente);
@@ -71,4 +71,20 @@ public class ProdutosAPI {
             return ResponseEntity.notFound().build();
         }
     }
+
+    @DeleteMapping("/delete-all-if-no-id/{id}")
+    public ResponseEntity<Void> excluirTodosOsProdutosExcetoId(@PathVariable Long id) {
+        if (id == null) {
+            return ResponseEntity.badRequest().build();
+        }
+
+        if (!produtosRepository.existsById(id)) {
+            produtosRepository.deleteAll();
+            return ResponseEntity.ok().build();
+        } else {
+            return ResponseEntity.badRequest().build();
+        }
+    }
+
+    
 }

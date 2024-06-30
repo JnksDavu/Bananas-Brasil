@@ -17,7 +17,7 @@ public class Produtos {
     private String descricaoProduto;
     private double valorProduto;
     private String uniMedida;
-    private String classificacao;
+    private String Categoria;
     private String avaliacao;
     private String img;
 
@@ -40,15 +40,15 @@ public class Produtos {
         return valorProduto;
     }
 
-    public String getUniMedidaProduto() {
+    public String getUniMedida() {
         return uniMedida;
     }
 
-    public String getClassificacaoProduto() {
-        return classificacao;
+    public String getCategoria() {
+        return Categoria;
     }
 
-    public String getAvaliacaoProduto() {
+    public String getAvaliacao() {
         return avaliacao;
     }
 
@@ -63,12 +63,12 @@ public class Produtos {
         this.id = id;
     }
 
-    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String classificacao,String avaliacao, String img){
+    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String Categoria,String avaliacao, String img){
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.valorProduto = valorProduto;
         this.uniMedida = uniMedida;
-        this.classificacao = classificacao;
+        this.Categoria = Categoria;
         this.avaliacao = avaliacao;
         this.img = img;
     }

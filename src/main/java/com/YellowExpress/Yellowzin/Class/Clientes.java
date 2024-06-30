@@ -1,12 +1,17 @@
 package com.YellowExpress.Yellowzin.Class;
 
-import java.util.*;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Set;
 
-import org.jasypt.util.text.BasicTextEncryptor;
-
-import jakarta.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.ManyToMany;
 
 import com.YellowExpress.Yellowzin.Class.Produtos;
+import com.YellowExpress.Yellowzin.Utils.PasswordUtils;
 
 @Entity
 public class Clientes {
@@ -20,7 +25,7 @@ public class Clientes {
     private Date dt_nascimento;
     private String genero;
     private String cep;
-    private Long Numero_casa;
+    private Long numero_casa;
 
     @ManyToMany(mappedBy = "clientes")
     private Set<Produtos> salas = new HashSet<>();
@@ -53,62 +58,48 @@ public class Clientes {
         return genero;
     }
 
-    public Long getNumero_casa() {
-        return Numero_casa;
+    public Long getnumero_casa() {
+        return numero_casa;
     }
 
     public Clientes() {
-
     }
-    
 
     public Clientes(Long id) {
         this.id = id;
     }
 
-    public static String encriptografar(String senha) {
-
-        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
-        textEncryptor.setPasswordCharArray("senha-de-segurança".toCharArray());
-
-        String retorno = textEncryptor.encrypt(senha);
-
-        return retorno;
-    }
-
-    //Criar um usuario, não precisa declarar os setter se são definidos diretamente no usuario
-    public void criarUsuarioCliente(String nome, String senha, String usuario, String cep, Date dt_nascimento, String genero, long Numero_casa){
+    public void criarUsuarioCliente(String nome, String senha, String usuario, String cep, Date dt_nascimento, String genero, long numero_casa) {
         this.nome = nome;
-        this.senha = senha;
+        this.senha = PasswordUtils.hashPassword(senha);
         this.usuario = usuario;
         this.cep = cep;
         this.dt_nascimento = dt_nascimento;
         this.genero = genero;
-        this.Numero_casa = Numero_casa;
+        this.numero_casa = numero_casa;
     }
 
-    public void alterarNomeCliente(String novoNome){
+    public void alterarNomeCliente(String novoNome) {
         this.nome = novoNome;
     }
 
-    public void alterarSenhaCliente(String novaSenha){
-        this.nome = novaSenha;
+    public void alterarSenhaCliente(String novaSenha) {
+        this.senha = PasswordUtils.hashPassword(novaSenha);
     }
 
-    public void alterarCepCliente(String novoCep){
+    public void alterarCepCliente(String novoCep) {
         this.cep = novoCep;
     }
-    
-    public void alterardt_nascimentoCliente(Date novodt_nascimento){
+
+    public void alterardt_nascimentoCliente(Date novodt_nascimento) {
         this.dt_nascimento = novodt_nascimento;
     }
-    
-    public void alterarGeneroCliente(String novoGenero){
+
+    public void alterarGeneroCliente(String novoGenero) {
         this.genero = novoGenero;
     }
 
-    public void alterarNumero_casaCliente(Long novoNumero_casa){
-        this.Numero_casa = novoNumero_casa;
+    public void alterarnumero_casaCliente(Long novonumero_casa) {
+        this.numero_casa = novonumero_casa;
     }
-    
 }
