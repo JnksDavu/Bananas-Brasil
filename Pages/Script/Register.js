@@ -61,148 +61,16 @@ document.addEventListener('DOMContentLoaded', function() {
                 errorContainer.appendChild(errorMessage);
 
                 // Insere o contêiner abaixo do campo de entrada
-                inputField.parentNode.insertBefore(errorContainer, inputField.nextSibling);
+                if (key === 'email') {
+                    const emailField = form.querySelector('[name="email"]');
+                    emailField.parentNode.insertBefore(errorContainer, emailField.nextSibling);
+                } else {
+                    inputField.parentNode.insertBefore(errorContainer, inputField.nextSibling);
+                }
             } else {
                 inputField.classList.remove('error-input');
             }
         });
-
-        // Validação do nome (apenas letras)
-        if (!/^[A-Za-z\s]+$/.test(data.nome)) {
-            formIsValid = false;
-            const nameField = form.querySelector('[name="name"]');
-            nameField.classList.add('error-input');
-
-            const nameError = document.createElement('div');
-            nameError.classList.add('error-message');
-            nameError.textContent = errorMessages.nameInvalid;
-
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(nameError);
-
-            nameField.parentNode.insertBefore(errorContainer, nameField.nextSibling);
-        } else {
-            const nameField = form.querySelector('[name="name"]');
-            nameField.classList.remove('error-input');
-        }
-
-        // Validação da senha (mínimo 6 caracteres, números e letras)
-        if (data.senha.length < 6 || !/[a-zA-Z]/.test(data.senha) || !/[0-9]/.test(data.senha)) {
-            formIsValid = false;
-            const passwordField = form.querySelector('[name="password"]');
-            passwordField.classList.add('error-input');
-
-            const passwordError = document.createElement('div');
-            passwordError.classList.add('error-message');
-            passwordError.textContent = errorMessages.passwordInvalid;
-
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(passwordError);
-
-            passwordField.parentNode.insertBefore(errorContainer, passwordField.nextSibling);
-        } else {
-            const passwordField = form.querySelector('[name="password"]');
-            passwordField.classList.remove('error-input');
-        }
-
-        // Validação do CEP (formato XXXXX-XXX)
-        if (data.cep.length !== 8) {
-            formIsValid = false;
-            const cepField = form.querySelector('[name="res_code"]');
-            cepField.classList.add('error-input');
-
-            const cepError = document.createElement('div');
-            cepError.classList.add('error-message');
-            cepError.textContent = errorMessages.cepInvalid;
-
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(cepError);
-
-            cepField.parentNode.insertBefore(errorContainer, cepField.nextSibling);
-        } else {
-            const cepField = form.querySelector('[name="res_code"]');
-            cepField.classList.remove('error-input');
-        }
-
-        // Validação da idade mínima de 14 anos
-        const birthDate = new Date(data.dt_nascimento);
-        const today = new Date();
-        const age = today.getFullYear() - birthDate.getFullYear();
-        const monthDiff = today.getMonth() - birthDate.getMonth();
-        if (monthDiff < 0 || (monthDiff === 0 && today.getDate() < birthDate.getDate())) {
-            age--;
-        }
-
-        if (age < 14) {
-            formIsValid = false;
-            const birthdayField = form.querySelector('[name="birthday"]');
-            birthdayField.classList.add('error-input');
-
-            const ageError = document.createElement('div');
-            ageError.classList.add('error-message');
-            ageError.textContent = errorMessages.ageInvalid;
-
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(ageError);
-
-            birthdayField.parentNode.insertBefore(errorContainer, birthdayField.nextSibling);
-        } else {
-            const birthdayField = form.querySelector('[name="birthday"]');
-            birthdayField.classList.remove('error-input');
-        }
-
-        // Validação do número da casa (máximo 5 caracteres numéricos)
-        if (!/^\d{1,5}$/.test(data.numero_casa)) {
-            formIsValid = false;
-            const houseNumberField = form.querySelector('[name="NumeroCasa"]');
-            houseNumberField.classList.add('error-input');
-
-            const houseNumberError = document.createElement('div');
-            houseNumberError.classList.add('error-message');
-            houseNumberError.textContent = errorMessages.houseNumberInvalid;
-
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(houseNumberError);
-
-            houseNumberField.parentNode.insertBefore(errorContainer, houseNumberField.nextSibling);
-        } else {
-            data.numero_casa = parseInt(data.numero_casa);
-            const houseNumberField = form.querySelector('[name="NumeroCasa"]');
-            houseNumberField.classList.remove('error-input');
-        }
-
-        // Verifica se as senhas coincidem
-        if (data.senha !== data.confirmPassword) {
-            formIsValid = false;
-            const passwordField = form.querySelector('[name="password"]');
-            const confirmPasswordField = form.querySelector('[name="confirmPassword"]');
-
-            passwordField.classList.add('error-input');
-            confirmPasswordField.classList.add('error-input');
-
-            const passwordError = document.createElement('div');
-            passwordError.classList.add('error-message');
-            passwordError.textContent = 'As senhas não coincidem.';
-
-            // Cria um contêiner para a mensagem de erro e insere abaixo dos campos de senha
-            const errorContainer = document.createElement('div');
-            errorContainer.classList.add('error-container');
-            errorContainer.appendChild(passwordError);
-
-            // Insere o contêiner abaixo dos campos de senha
-            passwordField.parentNode.insertBefore(errorContainer, passwordField.nextSibling);
-            confirmPasswordField.parentNode.insertBefore(errorContainer.cloneNode(true), confirmPasswordField.nextSibling);
-        } else {
-            const passwordField = form.querySelector('[name="password"]');
-            const confirmPasswordField = form.querySelector('[name="confirmPassword"]');
-            passwordField.classList.remove('error-input');
-            confirmPasswordField.classList.remove('error-input');
-        }
 
         // Se o formulário for válido, envia os dados
         if (formIsValid) {
@@ -217,7 +85,29 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.ok) {
                     alert('Cadastro realizado com sucesso!');
                     form.reset();
-                    console.log(data)
+                    window.location.href = "../Pages/Login/Login.html";
+                } else if (response.status === 409) {
+                    alert.apply('OLA')
+                    response.json().then(data => {
+                        const emailField = form.querySelector('[name="email"]');
+                        const errorMessage = document.createElement('div');
+                        errorMessage.classList.add('error-message');
+                        errorMessage.textContent = data.message; // Assumindo que a mensagem de erro é retornada no corpo da resposta JSON
+
+                        const errorContainer = document.createElement('div');
+                        errorContainer.classList.add('error-container');
+                        errorContainer.appendChild(errorMessage);
+
+                        // Remove mensagens de erro anteriores do campo de e-mail
+                        const existingErrorContainer = form.querySelector('.email-error-container');
+                        if (existingErrorContainer) {
+                            existingErrorContainer.remove();
+                        }
+
+                        // Insere o contêiner com o erro abaixo do campo de e-mail
+                        emailField.parentNode.insertBefore(errorContainer, emailField.nextSibling);
+                        errorContainer.classList.add('email-error-container');
+                    });
                 } else {
                     alert('Erro ao cadastrar. Tente novamente.');
                 }
@@ -228,5 +118,4 @@ document.addEventListener('DOMContentLoaded', function() {
             });
         }
     });
-    
 });

@@ -265,48 +265,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    
-                    <script>
-                        document.addEventListener("DOMContentLoaded", function() {
-                            // Bala de Banana
-                            fetch('http://localhost:8080/api/Produtos/3')
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById('product-name').textContent = data.nomeProduto;
-                                    document.getElementById('product-description').textContent = data.descricaoProduto;
-                                    document.getElementById('product-price').textContent = data.valorProduto.toFixed(2);
-                                    document.getElementById('product-img').src = data.img;
-                                    document.getElementById('product-img').alt = data.nomeProduto;
-                                })
-                                .catch(error => console.error('Erro ao buscar o produto Bala de Banana:', error));
-                    
-                            // Fudge de Banana
-                            fetch('http://localhost:8080/api/Produtos/18')
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById('fudge-name').textContent = data.nomeProduto;
-                                    document.getElementById('fudge-description').textContent = data.descricaoProduto;
-                                    document.getElementById('fudge-price').textContent = data.valorProduto.toFixed(2);
-                                    document.getElementById('fudge-img').src = data.img;
-                                    document.getElementById('fudge-img').alt = data.nomeProduto;
-                                })
-                                .catch(error => console.error('Erro ao buscar o produto Fudge de Banana:', error));
-                    
-                            // Smoothie de Banana
-                            fetch('http://localhost:8080/api/Produtos/19')
-                                .then(response => response.json())
-                                .then(data => {
-                                    document.getElementById('smoothie-name').textContent = data.nomeProduto;
-                                    document.getElementById('smoothie-description').textContent = data.descricaoProduto;
-                                    document.getElementById('smoothie-price').textContent = data.valorProduto.toFixed(2);
-                                    document.getElementById('smoothie-img').src = data.img;
-                                    document.getElementById('smoothie-img').alt = data.nomeProduto;
-                                })
-                                .catch(error => console.error('Erro ao buscar o produto Smoothie de Banana:', error));
-                        });
-                    </script>                 
-                    <!-- Product End -->
+                    </div>              
                 </div>
             </div>
         </div>
@@ -384,102 +343,99 @@
                     <div class="row">                      
                         <div class="col-lg-9">
                             <div class="row">
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="product-box mb-xl-30">
-                                        <div class="product_img">
-                                            <a href="#">
-                                                <img src="https://cooknenjoy.com/wp-content/uploads/2022/03/Bombom-Caribe-01-1920x1442.jpg" class="img-fluid full-width" alt="product_img">
-                                            </a>
-                                        </div>
-                                        <div class="product-caption">
-                                            <div class="product-title">
-                                                <h6><a href="product-details.html">Bombom de Banana</a></h6>
-                                                <span class="price">
-                                                    R$5.00                                                   
-                                                </span>
-                                            </div>
-                                            <div class="product-details">                                                
-                                            </div>
-                                            <div class="product-footer">
-                                                <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="product-box mb-xl-30">
-                                        <div class="product_img">
-                                            <a href="#">
-                                                <img src="https://www.adrianalauffer.com.br/wp-content/uploads/2020/03/receita-de-muffin-de-banana-e-aveia.png" class="img-fluid full-width" alt="product_img">
-                                            </a>
-                                        </div>
-                                        <div class="product-caption">                                      
-                                            <div class="product-title">
-                                                <h6><a href="product-details.html">Muffin de Banana</a></h6>
-                                                <span class="price">
-                                                    R$6.99
-                                                    
-                                                </span>
-                                            </div>
-                                            <div class="product-details">
-                                               
-                                            </div>
-                                            <div class="product-footer">
-                                                <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="product-box mb-md-30">
-                                        <div class="product_img">
-                                            <a href="#">
-                                                <img src="https://renata.com.br/images/produtos/102/renata-imagem-produtos-biscoito-renata-integrale-aveia-mel-e-banana-share.jpg" class="img-fluid full-width" alt="product_img">
-                                            </a>
-                                        </div>
-                                        <div class="product-caption">
-                                            <div class="product-title">
-                                                <h6><a href="product-details.html">Biscoito de Banana</a></h6>
-                                                <span class="price">
-                                                    R$8.99
-                                                </span>
-                                            </div>
-                                            
-                                            <div class="product-footer">
-                                                <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-6 col-sm-6">
-                                    <div class="product-box mb-md-30">
-                                        <div class="product_img">
-                                            <a href="#">
-                                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRsjjy0L3mwvsdlE7G5D-cc-zp1z0T_qpNw_392ZBLmzcqCeS-YEHtSlL7BYFOENNoFiSk&usqp=CAU" class="img-fluid full-width" alt="product_img">
-                                            </a>
-                                            <div class="overlay">
-                                                <div class="product-tags padding-10"> <span class="circle-tag">
-                                                       
-                                                    </span>
-                                                   
+                                <div class="col-lg-6 col-md-4" id="bombom-container">
+                                    <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                                        <div class="item sativa">
+                                            <div class="item-inner">
+                                                <div class="product_img">
+                                                    <a href="product-details.html?id=20">
+                                                        <img id="bombom-img" src="" alt="product image">
+                                                    </a>
+                                                </div>
+                                                <div class="item-info">
+                                                    <h4><a href="product-details.html?id=20" id="bombom-name"></a></h4>
+                                                    <p id="bombom-description"></p>
+                                                    <div class="item-price-wrpr">
+                                                        <span class="price">R$<span id="bombom-price"></span></span>
+                                                        <div class="product-footer">
+                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="product-caption">    
-                                            <div class="product-title">
-                                                <h6><a href="product-details.html">Geléia de Banana</a></h6>
-                                                <span class="price">
-                                                    R$6.99
-                                                   
-                                                </span>
-                                            </div>
-                                            
-                                            <div class="product-footer">
-                                                <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                    </div>
+                                </div>
+                                                                                                             
+                                <div class="col-lg-6 col-md-6" id="muffin-container">
+                                    <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                                        <div class="item sativa">
+                                            <div class="item-inner">
+                                                <div class="product_img">
+                                                    <a href="product-details.html?id=21">
+                                                        <img id="muffin-img" src="" alt="product image">
+                                                    </a>
+                                                </div>
+                                                <div class="item-info">
+                                                    <h4><a href="product-details.html?id=21" id="muffin-name"></a></h4>
+                                                    <p id="muffin-description"></p>
+                                                    <div class="item-price-wrpr">
+                                                        <span class="price">R$<span id="muffin-price"></span></span>
+                                                        <div class="product-footer">
+                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div>                                                      
+                                <div class="col-lg-6 col-md-6" id="biscoito-container">
+                                    <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                                        <div class="item sativa">
+                                            <div class="item-inner">
+                                                <div class="product_img">
+                                                    <a href="product-details.html?id=13">
+                                                        <img id="biscoito-img" src="" alt="product image">
+                                                    </a>
+                                                </div>
+                                                <div class="item-info">
+                                                    <h4><a href="product-details.html?id=13" id="biscoito-name"></a></h4>
+                                                    <p id="biscoito-description"></p>
+                                                    <div class="item-price-wrpr">
+                                                        <span class="price">R$<span id="biscoito-price"></span></span>
+                                                        <div class="product-footer">
+                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>     
+                                <div class="col-lg-6 col-md-6" id="geleia-container">
+                                    <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                                        <div class="item sativa">
+                                            <div class="item-inner">
+                                                <div class="product_img">
+                                                    <a href="product-details.html?id=8">
+                                                        <img id="geleia-img" src="" alt="product image">
+                                                    </a>
+                                                </div>
+                                                <div class="item-info">
+                                                    <h4><a href="product-details.html?id=8" id="geleia-name"></a></h4>
+                                                    <p id="geleia-description"></p>
+                                                    <div class="item-price-wrpr">
+                                                        <span class="price">R$<span id="geleia-price"></span></span>
+                                                        <div class="product-footer">
+                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> 
                             </div>
                         </div>
                     </div>
@@ -527,22 +483,19 @@
                             <div class="swiper-slide">
                                 <div class="product-box-3">
                                     <div class="product_img">
-                                        <a href="#">
-                                            <img src="https://cachacarianacional.vteximg.com.br/arquivos/ids/168447-1000-1000/bebida-mista-de-cachaca-rainha-da-cana-com-banana-700ml-00126_1.jpg?v=638187982504200000" class="img-fluid full-width" alt="#">
+                                        <a href="product-details.html?id=4" class="product-link">
+                                            <img src="" class="img-fluid product-image" alt="#">
                                         </a>
                                     </div>
                                     <div class="product-caption">
-                                        <h5><a href="#" class="text-light-black">Cachaça de Banana</a></h5>
+                                        <h5><a href="product-details.html?id=4" class="text-light-black product-name"></a></h5>
                                         <ul class="food-type">
-                                            <li class="text-light-white"></li>
-                                            <li class="text-light-white">Álcool</li>
-                                            <li class="text-light-white">Raiva</li>
-                                           
+                                            <li class="text-light-white product-type1"></li>
+                                            <li class="text-light-white product-type2">Raiva</li>
+                                            <li class="text-light-white product-type2">Álcool</li>
                                         </ul>
                                         <ul class="food-description">
-                                           
-                                           
-                                            <li class="text-light-black">R$65.50</li>
+                                            <li class="text-light-black product-price"></li>
                                             <img class="card_cart" src="../assets/img/cart.png">
                                         </ul>
                                     </div>
@@ -551,21 +504,19 @@
                             <div class="swiper-slide">
                                 <div class="product-box-3">
                                     <div class="product_img">
-                                        <a href="#">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRoNwNetTQMVlFhZqmRRYs-Cgl4GUvxdRykpA&s" class="img-fluid full-width" alt="#">
+                                        <a href="product-details.html?id=22" class="product-link">
+                                            <img src="" class="img-fluid product-image" alt="#">
                                         </a>
                                     </div>
                                     <div class="product-caption">
-                                        <h5><a href="#" class="text-light-black">Tablete de Banana</a></h5>
+                                        <h5><a href="product-details.html?id=22" class="text-light-black product-name"></a></h5>
                                         <ul class="food-type">
-                                            <li class="text-light-white"></li>
-                                            <li class="text-light-white">Lactose</li>                                       
-                                            <li class="text-light-white">Proteinas</li>
+                                            <li class="text-light-white product-type1"></li>
+                                            <li class="text-light-white product-type2">Cremoso</li>
+                                            <li class="text-light-white product-type2">Proteina</li>
                                         </ul>
                                         <ul class="food-description">
-                                           
-                                            
-                                            <li class="text-light-black">R$5.99</li>
+                                            <li class="text-light-black product-price"></li>
                                             <img class="card_cart" src="../assets/img/cart.png">
                                         </ul>
                                     </div>
@@ -574,22 +525,19 @@
                             <div class="swiper-slide">
                                 <div class="product-box-3">
                                     <div class="product_img">
-                                        <a href="#">
-                                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTbvhkpWlBJ-YIjisz1GiMNgjw1MEkTaxgwLg&s" class="img-fluid full-width" alt="#">
+                                        <a href="product-details.html?id=23" class="product-link">
+                                            <img src="" class="img-fluid product-image" alt="#">
                                         </a>
                                     </div>
                                     <div class="product-caption">
-                                        <h5><a href="#" class="text-light-black">Bala de Banana</a></h5>
+                                        <h5><a href="product-details.html?id=23"class="text-light-black product-name"></a></h5>
                                         <ul class="food-type">
-                                            <li class="text-light-white"></li>
-                                            <li class="text-light-white">Açucar</li>
-                                            <li class="text-light-white">Muito açucar</li>
-                                            
+                                            <li class="text-light-white product-type1"></li>
+                                            <li class="text-light-white product-type2">0% Lactose</li>
+                                            <li class="text-light-white product-type2">Diversos</li>
                                         </ul>
                                         <ul class="food-description">
-                                           
-                                            
-                                            <li class="text-light-black">R$0.99</li>
+                                            <li class="text-light-black product-price"></li>
                                             <img class="card_cart" src="../assets/img/cart.png">
                                         </ul>
                                     </div>
@@ -598,22 +546,19 @@
                             <div class="swiper-slide">
                                 <div class="product-box-3">
                                     <div class="product_img">
-                                        <a href="#">
-                                            <img src="../assets/img/Products/top4.jpg" class="img-fluid full-width" alt="#">
+                                        <a href="product-details.html?id=24" class="product-link">
+                                            <img src="" class="img-fluid product-image" alt="#">
                                         </a>
                                     </div>
                                     <div class="product-caption">
-                                        <h5><a href="#" class="text-light-black">Geléia de Banana</a></h5>
+                                        <h5><a href="product-details.html?id=24" class="text-light-black product-name"></a></h5>
                                         <ul class="food-type">
-                                            <li class="text-light-white"></li>
-                                            <li class="text-light-white">Cremoso</li>
-                                            <li class="text-light-white">Gostoso</li>
-                                            
+                                            <li class="text-light-white product-type1"></li>
+                                            <li class="text-light-white product-type2">Diferenciado</li>
+                                            <li class="text-light-white product-type2">Cremoso</li>
                                         </ul>
                                         <ul class="food-description">
-                                            
-                                            
-                                            <li class="text-light-black">R$8.99</li>
+                                            <li class="text-light-black product-price"></li>
                                             <img class="card_cart" src="../assets/img/cart.png">
                                         </ul>
                                     </div>
@@ -637,105 +582,76 @@
                 </div>
             </div>
             <div class="kosher-delivery-slider swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="product-box-3">
-                            <div class="product_img">
-                                <a href="#">
-                                    <img src="https://cachacarianacional.vteximg.com.br/arquivos/ids/168447-1000-1000/bebida-mista-de-cachaca-rainha-da-cana-com-banana-700ml-00126_1.jpg?v=638187982504200000" class="img-fluid full-width" alt="#">
-                                </a>
+                <div class="kosher-delivery-slider swiper-container" id="second-carousel">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="product-box-3">
+                                <div class="product_img">
+                                    <a href="product-details.html?id=23" class="product-link">
+                                        <img src="" class="img-fluid full-width product-image" alt="#">
+                                    </a>
+                                </div>
+                                <div class="product-caption">
+                                    <h5><a href="" class="text-light-black product-name"></a></h5>
+                                    <ul class="food-type">
+                                        <li class="text-light-white product-type1"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                    </ul>
+                                    <ul class="food-description">
+                                        <li class="text-light-black product-price"></li>
+                                        <img class="card_cart" src="../assets/img/cart.png">
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="product-caption">
-                                <h5><a href="#" class="text-light-black">Cachaça de Banana</a></h5>
-                                <ul class="food-type">
-                                    <li class="text-light-white"></li>
-                                    <li class="text-light-white">Álcool</li>
-                                    <li class="text-light-white">Raiva</li>
-                                </ul>
-                                <ul class="food-description">
-                                    
-                                    <li class="text-light-black">R$65.50</li>
-                                    <img class="card_cart" src="../assets/img/cart.png">
-                                </ul>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="product-box-3">
+                                <div class="product_img">
+                                    <a href="product-details.html?id=3" class="product-link">
+                                        <img src="" class="img-fluid full-width product-image" alt="#">
+                                    </a>
+                                </div>
+                                <div class="product-caption">
+                                    <h5><a href="" class="text-light-black product-name"></a></h5>
+                                    <ul class="food-type">
+                                        <li class="text-light-white product-type1"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                    </ul>
+                                    <ul class="food-description">
+                                        <li class="text-light-black product-price"></li>
+                                        <img class="card_cart" src="../assets/img/cart.png">
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="product-box-3">
+                                <div class="product_img">
+                                    <a href="product-details.html?id=8" class="product-link">
+                                        <img src="" class="img-fluid full-width product-image" alt="#">
+                                    </a>
+                                </div>
+                                <div class="product-caption">
+                                    <h5><a href="" class="text-light-black product-name"></a></h5>
+                                    <ul class="food-type">
+                                        <li class="text-light-white product-type1"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                        <li class="text-light-white product-type2"></li>
+                                    </ul>
+                                    <ul class="food-description">
+                                        <li class="text-light-black product-price"></li>
+                                        <img class="card_cart" src="../assets/img/cart.png">
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-slide">
-                        <div class="product-box-3">
-                            <div class="product_img">
-                                <a href="#">
-                                    <img src="https://www.pngitem.com/pimgs/m/252-2528955_banana-pudding-hd-png-download.png" class="img-fluid full-width" alt="#">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <h5><a href="#" class="text-light-black">Pudim de Banana</a></h5>
-                                <ul class="food-type">
-                                    <li class="text-light-white"></li>
-                                    <li class="text-light-white">Cremoso</li>
-                                    <li class="text-light-white">Proteína</li>
-                                    
-                                </ul>
-                                <ul class="food-description">
-                                   
-                                   
-                                    <li class="text-light-black">R$18.00</li>
-                                    <img class="card_cart" src="../assets/img/cart.png">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-box-3">
-                            <div class="product_img">
-                                <a href="#">
-                                    <img src="https://www.saobraz.com.br/files/product/16817626150094-produto1.png" class="img-fluid full-width" alt="#">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <h5><a href="#" class="text-light-black">Granola de Banana</a></h5>
-                                <ul class="food-type">
-                                    <li class="text-light-white"></li>
-                                    <li class="text-light-white">0% Lactose</li>
-                                    <li class="text-light-white">Diversos</li>
-                                </ul>
-                                <ul class="food-description">
-                                
-                                    
-                                    <li class="text-light-black">R$10.00 </li>
-                                    <img class="card_cart" src="../assets/img/cart.png">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="product-box-3">
-                            <div class="product_img">
-                                <a href="#">
-                                    <img src="https://cachacarianacional.vteximg.com.br/arquivos/ids/168297-1000-1000 mostarda-c-banana-caramelada-milagre-de-minas-220g-mbc-061895_1.jpg?v=638140755418900000" class="img-fluid full-width" alt="#">
-                                </a>
-                            </div>
-                            <div class="product-caption">
-                                <h5><a href="#" class="text-light-black">Mostarda de Banana</a></h5>
-                                <ul class="food-type">
-                                    <li class="text-light-white"></li>
-                                    <li class="text-light-white">0% Lactose</li>
-                                    <li class="text-light-white">Chips</li>
-                                </ul>
-                                <ul class="food-description">
-                                    
-                                   
-                                    <li class="text-light-black">R$15.00</li>
-
-                                    <img class="card_cart" src="../assets/img/cart.png">
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
                 </div>
-                <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
             </div>
-        </div>
     </section>
     <!-- kosher delivery -->
     <!-- Browse by category -->
@@ -833,65 +749,8 @@
                     </div>                 
                 </div>
             </div>
-        </div>
-       
+        </div>   
     </footer>
-    <!-- Footer End -->
-    <!-- Search Modal Start -->
-    <div class="modal fade" id="search-box">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4 class="modal-title fw-700">Search</h4>
-                </div>
-                <div class="modal-body">
-                    <div class="search-box p-relative full-width">
-                        <input type="text" class="form-control" placeholder="Sativa, Indica, Hybride">
-                    </div>
-                    <div class="search-results">
-                        <a href="#" class="search-result">
-                            <i class="fas fa-history"></i>
-                            <div class="search-result-inner">
-                                <h6>Exploring cannabis</h6>
-                                <span>January 24, 2022</span>
-                            </div>
-                        </a>
-                        <a href="#" class="search-result">
-                            <i class="fas fa-history"></i>
-                            <div class="search-result-inner">
-                                <h6>Weed is becoming legal</h6>
-                                <span>January 31, 2022</span>
-                            </div>
-                        </a>
-                        <a href="#" class="search-result">
-                            <i class="fas fa-history"></i>
-                            <div class="search-result-inner">
-                                <h6>How to get into weed</h6>
-                                <span>February 24, 2022</span>
-                            </div>
-                        </a>
-                        <a href="#" class="search-result">
-                            <i class="fas fa-history"></i>
-                            <div class="search-result-inner">
-                                <h6>Exploring cannabis</h6>
-                                <span>January 24, 2022</span>
-                            </div>
-                        </a>
-                        <a href="#" class="search-result">
-                            <i class="fas fa-history"></i>
-                            <div class="search-result-inner">
-                                <h6>Weed is becoming legal</h6>
-                                <span>June 04, 2022</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Search Modal End -->
-    <!-- Place all Scripts Here -->
     <!-- jQuery -->
     <script src="../assets/js/jquery.min.js"></script>
     <!-- Jquery 2 -->
@@ -926,11 +785,164 @@
     <script src="../assets/js/jquery.easypiechart.js"></script>
     <!-- organza Js -->
     <script src="../assets/js/Weedo.js"></script>
-    <!-- /Place all Scripts Here -->
-    <script src="../Pages/Script/Item.js"></script>
     <!--Buscar nome do item-->
     <script src="../Pages/Script/Cart.js"></script>
     <!--Adicionar ao carrinho-->
+    <script src="../Pages/Script/Item.js"></script>
+<<<<<<< HEAD
+    <!--Buscar nome do item-->
+    <script src="../Pages/Script/Cart.js"></script>
+    <!--Adicionar ao carrinho-->
+=======
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Bala de Banana
+            fetch('http://localhost:8080/api/Produtos/3')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('product-name').textContent = data.nomeProduto;
+                    document.getElementById('product-description').textContent = data.descricaoProduto;
+                    document.getElementById('product-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('product-img').src = data.img;
+                    document.getElementById('product-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto Bala de Banana:', error));
+    
+            // Fudge de Banana
+            fetch('http://localhost:8080/api/Produtos/18')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('fudge-name').textContent = data.nomeProduto;
+                    document.getElementById('fudge-description').textContent = data.descricaoProduto;
+                    document.getElementById('fudge-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('fudge-img').src = data.img;
+                    document.getElementById('fudge-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto Fudge de Banana:', error));
+    
+            // Smoothie de Banana
+            fetch('http://localhost:8080/api/Produtos/19')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('smoothie-name').textContent = data.nomeProduto;
+                    document.getElementById('smoothie-description').textContent = data.descricaoProduto;
+                    document.getElementById('smoothie-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('smoothie-img').src = data.img;
+                    document.getElementById('smoothie-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto Smoothie de Banana:', error));
+
+            fetch('http://localhost:8080/api/Produtos/20')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('bombom-name').textContent = data.nomeProduto;
+                    document.getElementById('bombom-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('bombom-img').src = data.img;
+                    document.getElementById('bombom-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error));   
+            fetch('http://localhost:8080/api/Produtos/21')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('muffin-name').textContent = data.nomeProduto;
+                    document.getElementById('muffin-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('muffin-img').src = data.img;
+                    document.getElementById('muffin-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/13')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('biscoito-name').textContent = data.nomeProduto;
+                    document.getElementById('biscoito-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('biscoito-img').src = data.img;
+                    document.getElementById('biscoito-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/8')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('geleia-name').textContent = data.nomeProduto;
+                    document.getElementById('geleia-price').textContent = data.valorProduto.toFixed(2);
+                    document.getElementById('geleia-img').src = data.img;
+                    document.getElementById('geleia-img').alt = data.nomeProduto;
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+
+            fetch('http://localhost:8080/api/Produtos/4') 
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.swiper-slide:nth-child(1) .text-light-black').textContent = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(1) .text-light-black').href = 'product-details.html?id=' + data.id; // Substitua pelo link correto
+                    document.querySelector('.swiper-slide:nth-child(1) .img-fluid').src = data.img;
+                    document.querySelector('.swiper-slide:nth-child(1) .img-fluid').alt = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(1) .food-description .text-light-black').textContent = 'R$' + data.valorProduto.toFixed(2); // Substitua pelo preço correto
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/22') 
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.swiper-slide:nth-child(2) .text-light-black').textContent = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(2) .text-light-black').href = 'product-details.html?id=' + data.id; // Substitua pelo link correto
+                    document.querySelector('.swiper-slide:nth-child(2) .img-fluid').src = data.img;
+                    document.querySelector('.swiper-slide:nth-child(2) .img-fluid').alt = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(2) .food-description .text-light-black').textContent = 'R$' + data.valorProduto.toFixed(2); // Substitua pelo preço correto
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/23') 
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.swiper-slide:nth-child(3) .text-light-black').textContent = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(3) .text-light-black').href = 'product-details.html?id=' + data.id; // Substitua pelo link correto
+                    document.querySelector('.swiper-slide:nth-child(3) .img-fluid').src = data.img;
+                    document.querySelector('.swiper-slide:nth-child(3) .img-fluid').alt = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(3) .food-description .text-light-black').textContent = 'R$' + data.valorProduto.toFixed(2); // Substitua pelo preço correto
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/24') 
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('.swiper-slide:nth-child(4) .text-light-black').textContent = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(4) .text-light-black').href = 'product-details.html?id=' + data.id; // Substitua pelo link correto
+                    document.querySelector('.swiper-slide:nth-child(4) .img-fluid').src = data.img;
+                    document.querySelector('.swiper-slide:nth-child(4) .img-fluid').alt = data.nomeProduto;
+                    document.querySelector('.swiper-slide:nth-child(4) .food-description .text-light-black').textContent = 'R$' + data.valorProduto.toFixed(2); // Substitua pelo preço correto
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+            fetch('http://localhost:8080/api/Produtos/23')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .text-light-black.product-name').textContent = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .product-link').href = 'product-details.html?id=23' + data.id;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').src = data.img;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').alt = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error));
+            fetch('http://localhost:8080/api/Produtos/3')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .text-light-black.product-name').textContent = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .product-link').href = 'product-details.html?id=3' + data.id;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').src = data.img;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').alt = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error));
+
+            fetch('http://localhost:8080/api/Produtos/8')
+                .then(response => response.json())
+                .then(data => {
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .text-light-black.product-name').textContent = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .product-link').href = 'product-details.html?id=3' + data.id;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').src = data.img;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').alt = data.nomeProduto;
+                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+                })
+                .catch(error => console.error('Erro ao buscar o produto:', error));
+        });
+    </script>   
+>>>>>>> 9bf7cfed1358b1a1d6298f29b76a96a07271a6a9
 </body>
 
 </html>

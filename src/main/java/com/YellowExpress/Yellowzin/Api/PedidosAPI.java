@@ -31,18 +31,25 @@ public class PedidosAPI {
     private ProdutosRepository produtosRepository;
 
     @PostMapping("/")
-    public ResponseEntity<Pedidos> criarPedido(@Validated @RequestBody Pedidos pedido) {
-        Optional<Clientes> cliente = clientesRepository.findById(pedido.getCliente().getId());
-        Optional<Produtos> produto = produtosRepository.findById(pedido.getProduto().getId());
-
-        if (!cliente.isPresent() || !produto.isPresent()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
+    public ResponseEntity<?> criarPedido(@Validated @RequestBody Pedidos pedido) {
+        Optional<Clientes> clienteOptional = clientesRepository.findById(pedido.getCliente().getId());
+        Optional<Produtos> produtoOptional = produtosRepository.findById(pedido.getProduto().getId());
+    
+        if (!clienteOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cliente não encontrado com o ID: " + pedido.getCliente().getId());
         }
-
-        pedido = new Pedidos(cliente.get(), produto.get(), pedido.getQuantidade());
-        Pedidos novoPedido = pedidoRepository.save(pedido);
-        return new ResponseEntity<>(novoPedido, HttpStatus.CREATED);
+    
+        if (!produtoOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Produto não encontrado com o ID: " + pedido.getProduto().getId());
+        }
+    
+        // Criação do pedido
+        Pedidos novoPedido = new Pedidos(clienteOptional.get(), produtoOptional.get(), pedido.getQuantidade());
+        novoPedido = pedidoRepository.save(novoPedido);
+        return ResponseEntity.ok(novoPedido);
     }
+    
+
 
     @GetMapping("/{id}")
     public ResponseEntity<Pedidos> buscarPedidoPorId(@PathVariable Long id) {
