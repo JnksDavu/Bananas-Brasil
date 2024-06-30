@@ -42,6 +42,7 @@ linksProduto.forEach(link => {
     link.addEventListener('click', function(event) {
         event.preventDefault();
         const productId = event.target.getAttribute('href').split('=')[1];
+        console.log('ID do Produto:', productId);
         buscarDetalhesProduto(productId);
     });
 });
