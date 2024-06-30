@@ -37,10 +37,13 @@ function buscarDetalhesProduto(id) {
         });
 }
 
-const linkProduto = document.querySelector('h4 a');
-linkProduto.addEventListener('click', function(event) {
-    event.preventDefault();
-    const productId = event.target.getAttribute('href').split('=')[1];
-    buscarDetalhesProduto(productId);
+const linksProduto = document.querySelectorAll('h4 a');
+linksProduto.forEach(link => {
+    link.addEventListener('click', function(event) {
+        event.preventDefault();
+        const productId = event.target.getAttribute('href').split('=')[1];
+        buscarDetalhesProduto(productId);
+    });
 });
+
 

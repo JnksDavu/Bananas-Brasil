@@ -10,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
-import com.YellowExpress.Yellowzin.Class.Produtos;
 import com.YellowExpress.Yellowzin.Utils.PasswordUtils;
 
 @Entity
@@ -83,9 +82,8 @@ public class Clientes {
         this.nome = novoNome;
     }
 
-    // Método para verificar senha
     public boolean verificarSenha(String senha) {
-        return this.senha.equals(PasswordUtils.hashPassword(senha));
+        return PasswordUtils.verifyPassword(senha, this.senha);
     }
 
     public void alterarSenhaCliente(String novaSenha) {
