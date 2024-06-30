@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         descricaoProdutoElement.textContent = produto.descricaoProduto;
         valorProdutoElement.textContent = `R$ ${produto.valorProduto.toFixed(2)}`;
         imgProdutoElement.src = produto.img;
+        
     } else {
         console.error('Dados do produto não encontrados na sessionStorage.');
     }

@@ -89,7 +89,7 @@
                                     <span class="user-alert-cart">1</span>
                                 </a>
                                 <div class="cart-detail-box">
-                                    <div class="card">
+                                    <!--<div class="card">
                                         <div class="card-header padding-20">Seus Pedidos</div>
                                         <div class="card-body no-padding">
                                             <div class="cat-product-box">
@@ -115,7 +115,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> lógica do carrinho --> 
+                                    <div class="card">
+                                        <div class="card-header padding-20">Seus Pedidos</div>
+                                        <div class="card-body no-padding">
+                                            <div class="cat-product-box" id="cart-items">
+                                                <!-- Items will be appended here dynamically -->
+                                            </div>
+                                            <div class="item-total">
+                                                <div class="total-price border-0">
+                                                    <span class="text-dark-white fw-700">Total:</span>
+                                                    <span class="text-dark-white fw-700" id="cart-total">R$0.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="card-footer padding-15"> <a href="checkout.html" class="btn-first green-btn text-custom-white full-width fw-500">Seguir para o Pagamento</a>
                                     </div>
                                 </div>
@@ -187,12 +200,12 @@
                                         </a>
                                     </div>
                                     <div class="item-info">
-                                        <h4><a href="product-details.html?id=3" id="product-name"></a></h4>
-                                        <p id="product-description"></p>
+                                        <h4><a href="product-details.html?id=3" class="product-name" id="product-name"></a></h4>
+                                        <p class="product-description" id="product-description"></p>
                                         <div class="item-price-wrpr">
-                                            <span class="price">R$<span id="product-price"></span></span>
+                                            <span class="price">R$<span class="product-price" id="product-price"></span></span>
                                             <span class="cart listing-cart">
-                                                <a href="#">
+                                                <a href="#" onclick="addToCart(this)"><!--carrinho-->
                                                     <img src="../assets/img/cart.png" alt="img">
                                                 </a>
                                             </span>
@@ -212,12 +225,12 @@
                                         </a>
                                     </div>
                                     <div class="item-info">
-                                        <h4><a href="product-details.html?id=18" id="fudge-name"></a></h4>
-                                        <p id="fudge-description"></p>
+                                        <h4><a href="product-details.html?id=18" class="product-name" id="fudge-name"></a></h4>
+                                        <p class="product-description" id="fudge-description"></p>
                                         <div class="item-price-wrpr">
-                                            <span class="price">R$<span id="fudge-price"></span></span>
+                                            <span class="price">R$<span class="product-price" id="fudge-price"></span></span>
                                             <span class="cart listing-cart">
-                                                <a href="#">
+                                                <a href="#" onclick="addToCart(this)"><!--carrinho-->
                                                     <img src="../assets/img/cart.png" alt="img">
                                                 </a>
                                             </span>
@@ -238,12 +251,12 @@
                                         </a>
                                     </div>
                                     <div class="item-info">
-                                        <h4><a href="product-details.html?id=19" id="smoothie-name"></a></h4>
-                                        <p id="smoothie-description"></p>
+                                        <h4><a href="product-details.html?id=19" class="product-name" id="smoothie-name"></a></h4>
+                                        <p class="product-description" id="smoothie-description"></p>
                                         <div class="item-price-wrpr">
-                                            <span class="price">R$<span id="smoothie-price"></span></span>
+                                            <span class="price">R$<span class="product-price" id="smoothie-price"></span></span>
                                             <span class="cart listing-cart">
-                                                <a href="#">
+                                                <a href="#" onclick="addToCart(this)"><!--carrinho-->
                                                     <img src="../assets/img/cart.png" alt="img">
                                                 </a>
                                             </span>
@@ -915,6 +928,9 @@
     <script src="../assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
     <script src="../Pages/Script/Item.js"></script>
+    <!--Buscar nome do item-->
+    <script src="../Pages/Script/Cart.js"></script>
+    <!--Adicionar ao carrinho-->
 </body>
 
 </html>

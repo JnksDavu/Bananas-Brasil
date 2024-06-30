@@ -78,7 +78,7 @@
                                     <span class="user-alert-cart">1</span>
                                 </a>
                                 <div class="cart-detail-box">
-                                    <div class="card">
+                                    <!--<div class="card">
                                         <div class="card-header padding-20">Seus Pedidos</div>
                                         <div class="card-body no-padding">
                                             <div class="cat-product-box">
@@ -104,7 +104,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> mudei o carrrinho para poder carregar o itens-->
+                                    <div class="card">
+                                        <div class="card-header padding-20">Seus Pedidos</div>
+                                        <div class="card-body no-padding">
+                                            <div class="cat-product-box" id="cart-items">
+                                                <!-- Items will be appended here dynamically -->
+                                            </div>
+                                            <div class="item-total">
+                                                <div class="total-price border-0">
+                                                    <span class="text-dark-white fw-700">Total:</span>
+                                                    <span class="text-dark-white fw-700" id="cart-total">R$0.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="card-footer padding-15"> <a href="checkout.html" class="btn-first green-btn text-custom-white full-width fw-500">Seguir para o Pagamento</a>
                                     </div>
                                 </div>
@@ -172,9 +185,9 @@
                             <i class="fas fa-star"></i>
                         </div>
                         <div class="shop-detail-content-wrapper"><!--nome do produto-->
-                            <h3 class="text-custom-black fw-700" id="nomeProduto"></h3>
+                            <h3 class="text-custom-black fw-700" class="product-name" id="nomeProduto"></h3>
                         </div>                        
-                        <h6 id="valorProduto"></h6><!--preço-->
+                        <h6 class="product-price" id="valorProduto"></h6><!--preço-->
                         <div class="product-quality">
                             <div class="label-wrpr thc-wrpr-level">
                                 <div class="thc-label-wrpr">
@@ -204,7 +217,7 @@
                             </div>
                         </div>
                         <div class="product-full-des mb-20">
-                            <p class="mb-0" id="descricaoProduto"></p><!--Decrição do Produto-->
+                            <p class="mb-0" class="product-description" id="descricaoProduto"></p><!--Decrição do Produto-->
                         </div>
                         <div class="availibity mt-20">
                             <h6 class="text-custom-black fw-600">Disponibilidade: <span class="text-success ml-2">Em Estoque</span></h6>
@@ -219,7 +232,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="product-btn mt-20"> <a class="btn-second btn-submit" href="product-details.html">Adicionar ao Carrinho</a>
+                        <div class="product-btn mt-20"> <a class="btn-second btn-submit" href="#">Adicionar ao Carrinho</a>
                             <div class="shop-bottom">
                                 <div class="shop-meta mt-20">
                                     <span class="text-light-black fw-600">Categorias:</span>
@@ -481,6 +494,9 @@
     <script src="../assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
     <script src="../Pages/Script/Item.js"></script>
+    <!--Buscar nome do item-->
+    <script src="../Pages/Script/Cart.js"></script>
+    <!--Adicionar ao carrinho-->
 </body>
 
-</html>
+</html>1
