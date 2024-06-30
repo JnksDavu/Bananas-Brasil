@@ -9,6 +9,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.YellowExpress.Yellowzin.Class.Clientes;
+import com.YellowExpress.Yellowzin.Dto.LoginRequest;
 import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
 
 @RestController
@@ -58,5 +59,15 @@ public class ClientesAPI {
 
         clientesRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        Clientes cliente = clientesRepository.findByUsuario(loginRequest.getUsuario());
+        if (cliente != null && cliente.verificarSenha(loginRequest.getSenha())) {
+            return ResponseEntity.ok("Login bem-sucedido");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+        }
     }
 }

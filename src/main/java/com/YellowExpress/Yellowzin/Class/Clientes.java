@@ -83,6 +83,11 @@ public class Clientes {
         this.nome = novoNome;
     }
 
+    // Método para verificar senha
+    public boolean verificarSenha(String senha) {
+        return this.senha.equals(PasswordUtils.hashPassword(senha));
+    }
+
     public void alterarSenhaCliente(String novaSenha) {
         this.senha = PasswordUtils.hashPassword(novaSenha);
     }
