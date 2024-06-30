@@ -177,22 +177,20 @@
             </div>
             <div class="shop-container product-gallery-wrapper">
                 <div class="row">
-                    <!-- Product Start -->
-                    <div class="col-lg-4 col-md-6">
+                    <div class="col-lg-4 col-md-6" id="product-container">
                         <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
                             <div class="item sativa">
                                 <div class="item-inner">
                                     <div class="product_img">
                                         <a href="#">
-                                            <img src="https://www.bonde.com.br/api/images/proxy?quality=100&src=https://s3.amazonaws.com/producao.spayce.com.br/1634914551072_smoothie.jpg" alt="product image">
+                                            <img id="product-img" src="" alt="product image">
                                         </a>
                                     </div>
                                     <div class="item-info">
-                                        <h4> <a href="product-details.html">Shake de Banana</a> </h4>
-                                        <p>Shake proteico de banana</p>
+                                        <h4><a href="product-details.html?id=3" id="product-name"></a></h4>
+                                        <p id="product-description"></p>
                                         <div class="item-price-wrpr">
-                                            <span class="price">R$25.00<span class="strike">R$30.00</span>
-                                            </span>
+                                            <span class="price">R$<span id="product-price"></span></span>
                                             <span class="cart listing-cart">
                                                 <a href="#">
                                                     <img src="../assets/img/cart.png" alt="img">
@@ -205,9 +203,21 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <!-- Product End -->
-                    <!-- Product Start -->
+                    </div>                  
+                    <script>
+                        document.addEventListener("DOMContentLoaded", function() {
+                            fetch('http://localhost:8080/api/Produtos/3')
+                                .then(response => response.json())
+                                .then(data => {
+                                    document.getElementById('product-name').textContent = data.nomeProduto;
+                                    document.getElementById('product-description').textContent = data.descricaoProduto;
+                                    document.getElementById('product-price').textContent = data.valorProduto.toFixed(2);
+                                    document.getElementById('product-img').src = data.img;
+                                    document.getElementById('product-img').alt = data.nomeProduto;
+                                })
+                                .catch(error => console.error('Erro ao buscar o produto:', error));
+                        });
+                    </script>                                 
                     <div class="col-lg-4 col-md-6">
                         <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
                             <div class="item sativa">
@@ -885,6 +895,7 @@
     <!-- organza Js -->
     <script src="../assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
+    <script src="../Pages/Script/Item.js"></script>
 </body>
 
 </html>

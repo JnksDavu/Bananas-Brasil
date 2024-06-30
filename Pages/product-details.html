@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--um comentario grande pq o gutavo falo pra colcar um comentario grande pra ver se muba essa bagaça-->
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -127,17 +127,11 @@
                                 <div class="swiper-wrapper">
                                     <div class="swiper-slide">
                                         <a href="#" class="popup">
-                                            <img src="../assets/img/products/fruta.png" class="img-fluid full-width" alt="slider">
+                                            <img id="imgProduto" src="" alt="Imagem do Produto"><!--aqui vai ficar as imagens dos itens buscando do banco! blz-->
                                         </a>
                                         <!-- <div class="shop-type-tag"> <a href="#" class="bg-custom-black type-tag">Promoção</a>
                                         </div>   Descomenta isso ai pra colocar a tag de Promoção no topo da imag blz bora bill morra-->
                                     </div>
-                                    <div class="swiper-slide">
-                                        <a href="#" class="popup">
-                                            <img src="../assets/img/products/bala.jpg" class="img-fluid full-width" alt="slider">
-                                        </a>
-                                    </div>
-                                    
                                 </div>
                                 <div class="swiper-button-next swiper-button-white"></div>
                                 <div class="swiper-button-prev swiper-button-white"></div>
@@ -177,13 +171,10 @@
                             <i class="text-yellow fas fa-star"></i>
                             <i class="fas fa-star"></i>
                         </div>
-                        <div class="shop-detail-content-wrapper">
-                            <h3 class="text-custom-black fw-700">Nome Produto</h3>
-                        </div>
-                        <span class="price">
-                            R$000.00
-                            <span class="strike">R$000.00</span>
-                        </span>
+                        <div class="shop-detail-content-wrapper"><!--nome do produto-->
+                            <h3 class="text-custom-black fw-700" id="nomeProduto"></h3>
+                        </div>                        
+                        <h6 id="valorProduto"></h6><!--preço-->
                         <div class="product-quality">
                             <div class="label-wrpr thc-wrpr-level">
                                 <div class="thc-label-wrpr">
@@ -213,7 +204,7 @@
                             </div>
                         </div>
                         <div class="product-full-des mb-20">
-                            <p class="mb-0">Descrição Produto Descrição Produto Descrição ProdutoDescrição ProdutoDescrição Produto Descrição Produto Descrição Produto</p>
+                            <p class="mb-0" id="descricaoProduto"></p><!--Decrição do Produto-->
                         </div>
                         <div class="availibity mt-20">
                             <h6 class="text-custom-black fw-600">Disponibilidade: <span class="text-success ml-2">Em Estoque</span></h6>
@@ -249,7 +240,7 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="description">
                                     <h3>Descrição</h3>
-                                    <p class=" mb-xl-20">Descrição Produto detalhada Descrição Produto detalhada  Descrição Produto detalhada  Descrição Produto detalhada  Descrição Produto detalhada  Descrição Produto detalhada  Descrição Produto detalhada </p>
+                                    <img id="imgProduto" src="" alt="Imagem do Produto"><!--desc mais detalhada-->
                                 </div>
                             </div>
                         </div>
@@ -489,6 +480,7 @@
     <!-- organza Js -->
     <script src="../assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
+    <script src="../Pages/Script/Item.js"></script>
 </body>
 
 </html>
