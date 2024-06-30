@@ -2,6 +2,8 @@ package com.YellowExpress.Yellowzin.Class;
 
 import java.util.*;
 
+import org.jasypt.util.text.BasicTextEncryptor;
+
 import jakarta.persistence.*;
 
 import com.YellowExpress.Yellowzin.Class.Produtos;
@@ -56,7 +58,7 @@ public class Clientes {
     }
 
     public Clientes() {
-        
+
     }
     
 
@@ -64,7 +66,15 @@ public class Clientes {
         this.id = id;
     }
 
-    
+    public static String encriptografar(String senha) {
+
+        BasicTextEncryptor textEncryptor = new BasicTextEncryptor();
+        textEncryptor.setPasswordCharArray("senha-de-segurança".toCharArray());
+
+        String retorno = textEncryptor.encrypt(senha);
+
+        return retorno;
+    }
 
     //Criar um usuario, não precisa declarar os setter se são definidos diretamente no usuario
     public void criarUsuarioCliente(String nome, String senha, String usuario, String cep, Date dt_nascimento, String genero, long Numero_casa){
