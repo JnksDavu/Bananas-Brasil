@@ -62,7 +62,7 @@ public class Produtos {
     public Produtos(Long id) {
         this.id = id;
     }
-
+    
     public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String Categoria,String avaliacao, String img){
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
@@ -72,6 +72,5 @@ public class Produtos {
         this.avaliacao = avaliacao;
         this.img = img;
     }
-    
-    
+
 }

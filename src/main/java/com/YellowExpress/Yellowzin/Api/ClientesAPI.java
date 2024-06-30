@@ -20,7 +20,12 @@ public class ClientesAPI {
     private ClientesRepository clientesRepository;
 
     @PostMapping("/")
-    public ResponseEntity<Clientes> criarCliente(@Validated @RequestBody Clientes cliente) {
+    public ResponseEntity<?> criarCliente(@Validated @RequestBody Clientes cliente) {
+        // Verifica se já existe um cliente com o mesmo usuário (email)
+        if (clientesRepository.existsByUsuario(cliente.getUsuario())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail já registrado");
+        }
+
         cliente.criarUsuarioCliente(cliente.getNome(), cliente.getSenha(), cliente.getUsuario(), cliente.getCep(), cliente.getdt_nascimento(), cliente.getGenero(), cliente.getnumero_casa());
         Clientes novoCliente = clientesRepository.save(cliente);
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
