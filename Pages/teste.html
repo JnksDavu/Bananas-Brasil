@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Produto</title>
+</head>
+<body>
+
+<div class="col-lg-4 col-md-6" id="produto-container">
+    <!-- Este div será preenchido dinamicamente -->
+</div>
+
+<script>
+    // Função para fazer a requisição GET e atualizar o HTML com os dados do produto
+    function carregarProduto() {
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "http://localhost:8080/api/produtos/3", true); // Substitua "3" pelo ID do produto desejado
+        xhr.onreadystatechange = function() {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+                if (xhr.status === 200) {
+                    var produto = JSON.parse(xhr.responseText);
+                    var produtoHtml = `
+                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                            <div class="item sativa">
+                                <div class="item-inner">
+                                    <div class="product_img">
+                                        <a href="#">
+                                            <img src="${produto.img}" alt="Imagem do produto">
+                                        </a>
+                                    </div>
+                                    <div class="item-info">
+                                        <h4><a href="product-details.html">${produto.nomeProduto}</a></h4>
+                                        <p>${produto.descricaoProduto}</p>
+                                        <div class="item-price-wrpr">
+                                            <span class="price">R$${produto.valorProduto.toFixed(2)}</span>
+                                            <span class="cart listing-cart">
+                                                <a href="#">
+                                                    <img src="../assets/img/cart.png" alt="Adicionar ao carrinho">
+                                                </a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="item-btm">
+                                        <!-- Se houver necessidade de mais informações, adicione aqui -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                    document.getElementById("produto-container").innerHTML = produtoHtml;
+                } else {
+                    console.error("Erro ao carregar o produto. Status: " + xhr.status);
+                }
+            }
+        };
+        xhr.send();
+    }
+
+    // Chamar a função para carregar o produto quando a página carregar
+    window.onload = function() {
+        carregarProduto();
+    };
+</script>
+
+</body>
+</html>
