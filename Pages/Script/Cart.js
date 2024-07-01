@@ -1,7 +1,10 @@
 let cart = [];
 let total = 0;
 
-function addToCart(buttonElement) {
+// Obtém o token JWT do localStorage
+var token = localStorage.getItem('jwtToken');
+
+function addToCart(buttonElement, productId) {
     // Obtenha os detalhes do produto (mantido como está)
     const productElement = buttonElement.closest('.detail-product-image');
     const productName = productElement.querySelector('.product-name').innerText;
@@ -25,8 +28,8 @@ function addToCart(buttonElement) {
     // Atualize a interface do carrinho (mantido como está)
     updateCartUI();
 
-    // Salve o pedido no backend (mantido como está)
-    saveOrderToBackend(item);
+    // Salve o pedido no backend (com o token JWT incluído no header)
+    saveOrderToBackend(item, productId);
 }
 
 function removeFromCart(index) {
@@ -47,19 +50,19 @@ function removeFromCart(index) {
     // Atualize a interface do carrinho (mantido como está)
     updateCartUI();
 
-    // Remova o pedido do backend (mantido como está)
+    // Remova o pedido do backend (com o token JWT incluído no header)
     deleteOrderFromBackend(item.orderId);
 }
 
-function saveOrderToBackend(item) {
-    fetch('http://localhost:8080/api/pedidos/', {
+function saveOrderToBackend(item, productId) {
+    fetch(`http://localhost:8080/api/pedidos/${token}`, {
         method: 'POST',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token // Adiciona o token JWT no header Authorization
         },
         body: JSON.stringify({
-            cliente: { id: 6 }, // ID do cliente, ajuste conforme necessário
-            produto: { id: 12 }, // ID do produto, ajuste conforme necessário
+            produto: { id: productId }, // Utiliza o productId recebido
             quantidade: 1 // Quantidade fixa para cada item adicionado ao carrinho
         })
     })
@@ -83,7 +86,8 @@ function deleteOrderFromBackend(orderId) {
     fetch(`http://localhost:8080/api/pedidos/${orderId}`, {
         method: 'DELETE',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer ' + token // Adiciona o token JWT no header Authorization
         },
     })
     .then(response => {
@@ -138,7 +142,7 @@ function updateCartUI() {
 }
 
 function loadOrdersFromBackend() {
-    fetch('http://localhost:8080/api/pedidos/')
+    fetch(`http://localhost:8080/api/pedidos/${token}`)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -190,7 +194,6 @@ function loadOrdersFromBackend() {
             console.error('Erro ao carregar pedidos do backend:', error);
         });
 }
-
 
 document.addEventListener('DOMContentLoaded', function() {
     loadOrdersFromBackend();

@@ -22,6 +22,7 @@ $(document).ready(function() {
                 // Se login bem-sucedido, você pode armazenar o token JWT ou redirecionar para outra página
                 console.log("Login bem-sucedido! Token JWT: " + response);
                 // Exemplo de redirecionamento
+                localStorage.setItem('jwtToken', response);
                 window.location.href = "../index.html";
             },
             error: function(xhr, status, error) {
