@@ -31,49 +31,106 @@ document.addEventListener('DOMContentLoaded', function() {
         houseNumberInvalid: 'O número da casa deve conter no máximo 5 caracteres numéricos.'
     };
 
+    function validateForm(data) {
+        let formIsValid = true;
+
+        // Verificação do nome
+        if (!data.nome || !/^[A-Za-z\s]+$/.test(data.nome)) {
+            formIsValid = false;
+            displayError('name', errorMessages.nameInvalid);
+        }
+
+        // Verificação da data de nascimento
+        if (!data.dt_nascimento) {
+            formIsValid = false;
+            displayError('birthday', errorMessages.birthday);
+        } else {
+            const birthDate = new Date(data.dt_nascimento);
+            const today = new Date();
+            const age = today.getFullYear() - birthDate.getFullYear();
+            if (age < 14) {
+                formIsValid = false;
+                displayError('birthday', errorMessages.ageInvalid);
+            }
+        }
+
+        // Verificação do gênero
+        if (!data.genero) {
+            formIsValid = false;
+            displayError('gender', errorMessages.gender);
+        }
+
+        // Verificação do e-mail
+        if (!data.usuario || !/\S+@\S+\.\S+/.test(data.usuario)) {
+            formIsValid = false;
+            displayError('email', errorMessages.email);
+        }
+
+        // Verificação da senha
+        if (!data.senha || data.senha.length < 6 || !/\d/.test(data.senha) || !/[a-zA-Z]/.test(data.senha)) {
+            formIsValid = false;
+            displayError('password', errorMessages.passwordInvalid);
+        }
+
+        // Verificação da confirmação de senha
+        if (data.senha !== data.confirmPassword) {
+            formIsValid = false;
+            displayError('confirmPassword', errorMessages.confirmPassword);
+        }
+
+        // Verificação do CEP
+        if (!data.cep || !/^\d{8}$/.test(data.cep)) {
+            formIsValid = false;
+            displayError('res_code', errorMessages.cepInvalid);
+        }
+
+        // Verificação do número da casa
+        if (!data.numero_casa || !/^\d{1,5}$/.test(data.numero_casa)) {
+            formIsValid = false;
+            displayError('NumeroCasa', errorMessages.houseNumberInvalid);
+        }
+
+        return formIsValid;
+    }
+
+    function displayError(field, message) {
+        const inputField = form.querySelector(`[name="${field}"]`);
+        inputField.classList.add('error-input');
+
+        const errorMessage = document.createElement('div');
+        errorMessage.classList.add('error-message');
+        errorMessage.textContent = message;
+
+        const errorContainer = document.createElement('div');
+        errorContainer.classList.add('error-container');
+        errorContainer.appendChild(errorMessage);
+
+        // Remove mensagens de erro anteriores do campo
+        const existingErrorContainer = inputField.parentNode.querySelector('.error-container');
+        if (existingErrorContainer) {
+            existingErrorContainer.remove();
+        }
+
+        inputField.parentNode.insertBefore(errorContainer, inputField.nextSibling);
+    }
+
     submitButton.addEventListener('click', function(event) {
         event.preventDefault(); // Evita a submissão do formulário
 
         const formData = new FormData(form);
         const data = {};
-        let formIsValid = true;
 
         // Remove mensagens de erro anteriores
         const errorElements = form.querySelectorAll('.error-message');
         errorElements.forEach(error => error.remove());
 
-        // Validação de cada campo do formulário
+        // Coleta e mapeia os dados do formulário
         formData.forEach((value, key) => {
             data[fieldMapping[key]] = value.trim(); // Usa o mapeamento para atribuir o nome correto
-            const inputField = form.querySelector(`[name="${key}"]`);
-
-            if (!data[fieldMapping[key]]) {
-                formIsValid = false;
-                inputField.classList.add('error-input');
-
-                const errorMessage = document.createElement('div');
-                errorMessage.classList.add('error-message');
-                errorMessage.textContent = errorMessages[key]; // Usa a mensagem de erro mapeada
-
-                // Cria um contêiner para a mensagem de erro e insere abaixo do campo
-                const errorContainer = document.createElement('div');
-                errorContainer.classList.add('error-container');
-                errorContainer.appendChild(errorMessage);
-
-                // Insere o contêiner abaixo do campo de entrada
-                if (key === 'email') {
-                    const emailField = form.querySelector('[name="email"]');
-                    emailField.parentNode.insertBefore(errorContainer, emailField.nextSibling);
-                } else {
-                    inputField.parentNode.insertBefore(errorContainer, inputField.nextSibling);
-                }
-            } else {
-                inputField.classList.remove('error-input');
-            }
         });
 
-        // Se o formulário for válido, envia os dados
-        if (formIsValid) {
+        // Valida os dados do formulário
+        if (validateForm(data)) {
             fetch('http://localhost:8080/api/clientes/', {
                 method: 'POST',
                 headers: {
@@ -87,26 +144,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     form.reset();
                     window.location.href = "../Pages/Login/Login.html";
                 } else if (response.status === 409) {
-                    alert.apply('OLA')
                     response.json().then(data => {
-                        const emailField = form.querySelector('[name="email"]');
-                        const errorMessage = document.createElement('div');
-                        errorMessage.classList.add('error-message');
-                        errorMessage.textContent = data.message; // Assumindo que a mensagem de erro é retornada no corpo da resposta JSON
-
-                        const errorContainer = document.createElement('div');
-                        errorContainer.classList.add('error-container');
-                        errorContainer.appendChild(errorMessage);
-
-                        // Remove mensagens de erro anteriores do campo de e-mail
-                        const existingErrorContainer = form.querySelector('.email-error-container');
-                        if (existingErrorContainer) {
-                            existingErrorContainer.remove();
-                        }
-
-                        // Insere o contêiner com o erro abaixo do campo de e-mail
-                        emailField.parentNode.insertBefore(errorContainer, emailField.nextSibling);
-                        errorContainer.classList.add('email-error-container');
+                        displayError('email', data.message || 'Usuário já existe.');
                     });
                 } else {
                     alert('Erro ao cadastrar. Tente novamente.');
