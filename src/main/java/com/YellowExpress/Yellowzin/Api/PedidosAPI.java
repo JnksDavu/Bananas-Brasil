@@ -56,6 +56,7 @@ public class PedidosAPI {
         return ResponseEntity.ok(novoPedido);
     }
     
+    
 
 
     @GetMapping("/{id}")
@@ -84,6 +85,25 @@ public class PedidosAPI {
 
         return ResponseEntity.ok(responsePedidos);
     }
+
+    @GetMapping("/client/{token}")
+    public ResponseEntity<?> getPedidosDoCliente(@PathVariable String token) {
+        // Extrair o usuário (cliente) do token
+        String usuario = JwtUtil.getUsuarioFromToken(token);
+
+        // Buscar o cliente associado ao usuário
+        Optional<Clientes> clienteOptional = clientesRepository.findByUsuario(usuario);
+
+        if (!clienteOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cliente não encontrado para o token fornecido.");
+        }
+
+        // Buscar todos os pedidos do cliente
+        List<Pedidos> pedidos = pedidoRepository.findByCliente(clienteOptional.get());
+
+        return ResponseEntity.ok(pedidos);
+    }
+
 
     @PutMapping("/{id}")
     public ResponseEntity<Pedidos> atualizarPedido(@PathVariable Long id, @Validated @RequestBody Pedidos pedidoAtualizado) {

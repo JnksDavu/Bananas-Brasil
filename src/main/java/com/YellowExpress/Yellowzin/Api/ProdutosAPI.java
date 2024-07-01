@@ -71,18 +71,10 @@ public class ProdutosAPI {
         }
     }
 
-    @DeleteMapping("/delete-all-if-no-id/{id}")
-    public ResponseEntity<Void> excluirTodosOsProdutosExcetoId(@PathVariable Long id) {
-        if (id == null) {
-            return ResponseEntity.badRequest().build();
-        }
-
-        if (!produtosRepository.existsById(id)) {
-            produtosRepository.deleteAll();
-            return ResponseEntity.ok().build();
-        } else {
-            return ResponseEntity.badRequest().build();
-        }
+    @DeleteMapping("/delete-all")
+    public ResponseEntity<Void> excluirTodosOsProdutos() {
+        produtosRepository.deleteAll();
+        return ResponseEntity.noContent().build();
     }
 
 }
