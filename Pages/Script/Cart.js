@@ -5,13 +5,26 @@ let total = 0;
 var token = localStorage.getItem('jwtToken');
 
 function addToCart(buttonElement, productId) {
-    // Obtenha os detalhes do produto (mantido como está)
-    const productElement = buttonElement.closest('.detail-product-image');
-    const productName = productElement.querySelector('.product-name').innerText;
-    const productDescription = productElement.querySelector('.product-description').innerText;
-    const productPrice = parseFloat(productElement.querySelector('.product-price').innerText);
+    // Verifique se os detalhes do produto estão no sessionStorage
+    const produtoDetalhes = sessionStorage.getItem('produtoDetalhes');
+    let productName, productDescription, productPrice, productIdFromStorage;
 
-    // Crie o objeto do item (mantido como está)
+    if (produtoDetalhes) {
+        const produto = JSON.parse(produtoDetalhes);
+        productName = produto.nomeProduto;
+        productDescription = produto.descricaoProduto;
+        productPrice = parseFloat(produto.valorProduto);
+        productIdFromStorage = produto.idProduto; // Obtém o ID do produto do sessionStorage
+    } else {
+        // Se os detalhes não estiverem no sessionStorage, obtenha-os do elemento DOM
+        const productElement = buttonElement.closest('.detail-product-image');
+        productName = productElement.querySelector('.product-name').innerText;
+        productDescription = productElement.querySelector('.product-description').innerText;
+        productPrice = parseFloat(productElement.querySelector('.product-price').innerText);
+        productIdFromStorage = productId; // Use o ID passado como parâmetro
+    }
+
+    // Crie o objeto do item
     const item = {
         productName,
         productDescription,
@@ -19,18 +32,19 @@ function addToCart(buttonElement, productId) {
         orderId: null // Inicialmente, o ID do pedido é nulo
     };
 
-    // Adicione o item ao carrinho (mantido como está)
+    // Adicione o item ao carrinho
     cart.push(item);
 
-    // Atualize o total do carrinho (mantido como está)
+    // Atualize o total do carrinho
     total += productPrice;
 
-    // Atualize a interface do carrinho (mantido como está)
+    // Atualize a interface do carrinho
     updateCartUI();
 
-    // Salve o pedido no backend (com o token JWT incluído no header)
-    saveOrderToBackend(item, productId);
+    // Salve o pedido no backend
+    saveOrderToBackend(item, productIdFromStorage);
 }
+
 
 function removeFromCart(index) {
     const item = cart[index];

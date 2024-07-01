@@ -29,7 +29,12 @@ function buscarDetalhesProduto(id) {
         .then(data => {
             console.log('Detalhes do Produto:', data);
 
-            sessionStorage.setItem('produtoDetalhes', JSON.stringify(data));
+            // Inclui o ID do produto nos dados armazenados
+            const produtoDetalhes = {
+                ...data,
+                idProduto: id
+            };
+            sessionStorage.setItem('produtoDetalhes', JSON.stringify(produtoDetalhes));
 
             window.location.href = `./product-details.html`;
         })
@@ -37,6 +42,7 @@ function buscarDetalhesProduto(id) {
             console.error('Erro ao buscar detalhes do produto:', error);
         });
 }
+
 
 const linksProduto = document.querySelectorAll('h4 a');
 linksProduto.forEach(link => {
