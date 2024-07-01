@@ -353,12 +353,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="item-info">
-                                                    <h4><a href="product-details.html?id=20" id="bombom-name"></a></h4>
-                                                    <p id="bombom-description"></p>
+                                                    <h4><a href="product-details.html?id=20" class="product-name" id="bombom-name"></a></h4>
+                                                    <p class="product-description" id="bombom-description"></p>
                                                     <div class="item-price-wrpr">
-                                                        <span class="price">R$<span id="bombom-price"></span></span>
+                                                        <span class="price">R$<span class="product-price" id="bombom-price"></span></span>
                                                         <div class="product-footer">
-                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                            <a href="#" onclick="addToCart(this)" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -377,12 +377,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="item-info">
-                                                    <h4><a href="product-details.html?id=21" id="muffin-name"></a></h4>
-                                                    <p id="muffin-description"></p>
+                                                    <h4><a href="product-details.html?id=21" class="product-name" id="muffin-name"></a></h4>
+                                                    <p class="product-description" id="muffin-description"></p>
                                                     <div class="item-price-wrpr">
-                                                        <span class="price">R$<span id="muffin-price"></span></span>
+                                                        <span class="price">R$<span class="product-price" id="muffin-price"></span></span>
                                                         <div class="product-footer">
-                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                            <a href="#" onclick="addToCart(this)" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -400,12 +400,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="item-info">
-                                                    <h4><a href="product-details.html?id=13" id="biscoito-name"></a></h4>
-                                                    <p id="biscoito-description"></p>
+                                                    <h4><a href="product-details.html?id=13" class="product-name" id="biscoito-name"></a></h4>
+                                                    <p class="product-description" id="biscoito-description"></p>
                                                     <div class="item-price-wrpr">
-                                                        <span class="price">R$<span id="biscoito-price"></span></span>
+                                                        <span class="price">R$<span class="product-price" id="biscoito-price"></span></span>
                                                         <div class="product-footer">
-                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                            <a href="#" onclick="addToCart(this)" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -423,12 +423,12 @@
                                                     </a>
                                                 </div>
                                                 <div class="item-info">
-                                                    <h4><a href="product-details.html?id=8" id="geleia-name"></a></h4>
-                                                    <p id="geleia-description"></p>
+                                                    <h4><a href="product-details.html?id=8" class="product-name" id="geleia-name"></a></h4>
+                                                    <p class="product-description" id="geleia-description"></p>
                                                     <div class="item-price-wrpr">
-                                                        <span class="price">R$<span id="geleia-price"></span></span>
+                                                        <span class="price">R$<span class="product-price" id="geleia-price"></span></span>
                                                         <div class="product-footer">
-                                                            <a href="#" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
+                                                            <a href="#" onclick="addToCart(this)" class="btn-second btn-submit full-width btn-sm">Adicionar ao Carrinho</a>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -496,11 +496,11 @@
                                         </ul>
                                         <ul class="food-description">
                                             <li class="text-light-black product-price"></li>
-                                            <img class="card_cart" src="../assets/img/cart.png">
+                                            <img class="card_cart" src="../assets/img/cart.png"> 
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                                                      
                             <div class="swiper-slide">
                                 <div class="product-box-3">
                                     <div class="product_img">
@@ -530,7 +530,7 @@
                                         </a>
                                     </div>
                                     <div class="product-caption">
-                                        <h5><a href="product-details.html?id=23"class="text-light-black product-name"></a></h5>
+                                        <h5><a href="product-details.html?id=23" class="text-light-black product-name"></a></h5>
                                         <ul class="food-type">
                                             <li class="text-light-white product-type1"></li>
                                             <li class="text-light-white product-type2">0% Lactose</li>
@@ -563,7 +563,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
+                            </div>                            
                         </div>
                         <div class="swiper-button-next"></div>
                         <div class="swiper-button-prev"></div>
@@ -581,83 +581,81 @@
                     <h2 class="text-light-black no-margin">Produtos Novos</h2>
                 </div>
             </div>
-            <div class="kosher-delivery-slider swiper-container">
-                <div class="kosher-delivery-slider swiper-container" id="second-carousel">
-                    <div class="swiper-wrapper">
-                        <div class="swiper-slide">
-                            <div class="product-box-3">
-                                <div class="product_img">
-                                    <a href="product-details.html?id=23" class="product-link">
-                                        <img src="" class="img-fluid full-width product-image" alt="#">
-                                    </a>
-                                </div>
-                                <div class="product-caption">
-                                    <h5><a href="" class="text-light-black product-name"></a></h5>
-                                    <ul class="food-type">
-                                        <li class="text-light-white product-type1"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                    </ul>
-                                    <ul class="food-description">
-                                        <li class="text-light-black product-price"></li>
-                                        <img class="card_cart" src="../assets/img/cart.png">
-                                    </ul>
-                                </div>
+            <div class="kosher-delivery-slider swiper-container" id="second-carousel">
+                <div class="swiper-wrapper">
+                    <!-- Primeiro produto -->
+                    <div class="swiper-slide">
+                        <div class="product-box-3">
+                            <div class="product_img">
+                                <a href="product-details.html?id=23" class="product-link">
+                                    <img src="" class="img-fluid full-width product-image" alt="#">
+                                </a>
                             </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product-box-3">
-                                <div class="product_img">
-                                    <a href="product-details.html?id=3" class="product-link">
-                                        <img src="" class="img-fluid full-width product-image" alt="#">
-                                    </a>
-                                </div>
-                                <div class="product-caption">
-                                    <h5><a href="" class="text-light-black product-name"></a></h5>
-                                    <ul class="food-type">
-                                        <li class="text-light-white product-type1"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                    </ul>
-                                    <ul class="food-description">
-                                        <li class="text-light-black product-price"></li>
-                                        <img class="card_cart" src="../assets/img/cart.png">
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="swiper-slide">
-                            <div class="product-box-3">
-                                <div class="product_img">
-                                    <a href="product-details.html?id=8" class="product-link">
-                                        <img src="" class="img-fluid full-width product-image" alt="#">
-                                    </a>
-                                </div>
-                                <div class="product-caption">
-                                    <h5><a href="" class="text-light-black product-name"></a></h5>
-                                    <ul class="food-type">
-                                        <li class="text-light-white product-type1"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                        <li class="text-light-white product-type2"></li>
-                                    </ul>
-                                    <ul class="food-description">
-                                        <li class="text-light-black product-price"></li>
-                                        <img class="card_cart" src="../assets/img/cart.png">
-                                    </ul>
-                                </div>
+                            <div class="product-caption">
+                                <h5><a href="product-details.html?id=23" class="text-light-black product-name"></a></h5>
+                                <ul class="food-type">
+                                    <li class="text-light-white product-type1"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                </ul>
+                                <ul class="food-description">
+                                    <li class="text-light-black product-price"></li>
+                                    <img class="card_cart" src="../assets/img/cart.png">
+                                </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="swiper-button-next"></div>
-                    <div class="swiper-button-prev"></div>
+                    <!-- Segundo produto -->
+                    <div class="swiper-slide">
+                        <div class="product-box-3">
+                            <div class="product_img">
+                                <a href="product-details.html?id=3" class="product-link">
+                                    <img src="" class="img-fluid full-width product-image" alt="#">
+                                </a>
+                            </div>
+                            <div class="product-caption">
+                                <h5><a href="product-details.html?id=3" class="text-light-black product-name"></a></h5>
+                                <ul class="food-type">
+                                    <li class="text-light-white product-type1"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                </ul>
+                                <ul class="food-description">
+                                    <li class="text-light-black product-price"></li>
+                                    <img class="card_cart" src="../assets/img/cart.png">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Terceiro produto -->
+                    <div class="swiper-slide">
+                        <div class="product-box-3">
+                            <div class="product_img">
+                                <a href="product-details.html?id=8" class="product-link">
+                                    <img src="" class="img-fluid full-width product-image" alt="#">
+                                </a>
+                            </div>
+                            <div class="product-caption">
+                                <h5><a href="product-details.html?id=8" class="text-light-black product-name"></a></h5>
+                                <ul class="food-type">
+                                    <li class="text-light-white product-type1"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                    <li class="text-light-white product-type2"></li>
+                                </ul>
+                                <ul class="food-description">
+                                    <li class="text-light-black product-price"></li>
+                                    <img class="card_cart" src="../assets/img/cart.png">
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
+                       
+            </div>            
     </section>
-    <!-- kosher delivery -->
-    <!-- Browse by category -->
-    
-    <!-- Browse by category -->
-    <!-- Icons Start -->
     <div class="footer-top section-padding">
         <div class="container">
             <div class="row">
@@ -867,16 +865,18 @@
                 })
                 .catch(error => console.error('Erro ao buscar o produto:', error)); 
 
-            fetch('http://localhost:8080/api/Produtos/4') 
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector('.swiper-slide:nth-child(1) .text-light-black').textContent = data.nomeProduto;
-                    document.querySelector('.swiper-slide:nth-child(1) .text-light-black').href = 'product-details.html?id=' + data.id; // Substitua pelo link correto
-                    document.querySelector('.swiper-slide:nth-child(1) .img-fluid').src = data.img;
-                    document.querySelector('.swiper-slide:nth-child(1) .img-fluid').alt = data.nomeProduto;
-                    document.querySelector('.swiper-slide:nth-child(1) .food-description .text-light-black').textContent = 'R$' + data.valorProduto.toFixed(2); // Substitua pelo preço correto
-                })
-                .catch(error => console.error('Erro ao buscar o produto:', error)); 
+                fetch('http://localhost:8080/api/Produtos/4')
+                    .then(response => response.json())
+                    .then(data => {
+                        const swiperSlide = document.querySelector('.swiper-slide');
+                        swiperSlide.querySelector('.text-light-black.product-name').textContent = data.nomeProduto;
+                        swiperSlide.querySelector('.text-light-black.product-name').href = 'product-details.html?id=' + data.id;
+                        swiperSlide.querySelector('.img-fluid.product-image').src = data.img;
+                        swiperSlide.querySelector('.img-fluid.product-image').alt = data.nomeProduto;
+                        swiperSlide.querySelector('.food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+                    })
+                    .catch(error => console.error('Erro ao buscar o produto:', error));
+
             fetch('http://localhost:8080/api/Produtos/22') 
                 .then(response => response.json())
                 .then(data => {
@@ -908,36 +908,66 @@
                 })
                 .catch(error => console.error('Erro ao buscar o produto:', error)); 
             fetch('http://localhost:8080/api/Produtos/23')
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .text-light-black.product-name').textContent = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .product-link').href = 'product-details.html?id=23' + data.id;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').src = data.img;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').alt = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(1) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
-                })
-                .catch(error => console.error('Erro ao buscar o produto:', error));
-            fetch('http://localhost:8080/api/Produtos/3')
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .text-light-black.product-name').textContent = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .product-link').href = 'product-details.html?id=3' + data.id;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').src = data.img;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').alt = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(2) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
-                })
-                .catch(error => console.error('Erro ao buscar o produto:', error));
+// Fetch para o produto com ID 23
+const urlProduto23 = 'http://localhost:8080/api/Produtos/23';
+console.log('Buscando produto com ID 23:', urlProduto23);
+fetch(urlProduto23)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar detalhes do produto 23');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Dados do produto 23:', data);
+        document.querySelector('#second-carousel .swiper-slide:nth-child(1) .text-light-black.product-name').textContent = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(1) .product-link').href = 'product-details.html?id=' + data.id;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').src = data.img;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(1) .img-fluid.product-image').alt = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(1) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+    })
+    .catch(error => console.error('Erro ao buscar o produto 23:', error));
 
-            fetch('http://localhost:8080/api/Produtos/8')
-                .then(response => response.json())
-                .then(data => {
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .text-light-black.product-name').textContent = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .product-link').href = 'product-details.html?id=3' + data.id;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').src = data.img;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').alt = data.nomeProduto;
-                    document.querySelector('#second-carousel .swiper-slide:nth-child(3) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
-                })
-                .catch(error => console.error('Erro ao buscar o produto:', error));
+// Fetch para o produto com ID 3
+const urlProduto3 = 'http://localhost:8080/api/Produtos/3';
+console.log('Buscando produto com ID 3:', urlProduto3);
+fetch(urlProduto3)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar detalhes do produto 3');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Dados do produto 3:', data);
+        document.querySelector('#second-carousel .swiper-slide:nth-child(2) .text-light-black.product-name').textContent = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(2) .product-link').href = 'product-details.html?id=' + data.id;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').src = data.img;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(2) .img-fluid.product-image').alt = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(2) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+    })
+    .catch(error => console.error('Erro ao buscar o produto 3:', error));
+
+// Fetch para o produto com ID 8
+const urlProduto8 = 'http://localhost:8080/api/Produtos/8';
+console.log('Buscando produto com ID 8:', urlProduto8);
+fetch(urlProduto8)
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Erro ao buscar detalhes do produto 8');
+        }
+        return response.json();
+    })
+    .then(data => {
+        console.log('Dados do produto 8:', data);
+        document.querySelector('#second-carousel .swiper-slide:nth-child(3) .text-light-black.product-name').textContent = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(3) .product-link').href = 'product-details.html?id=' + data.id;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').src = data.img;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(3) .img-fluid.product-image').alt = data.nomeProduto;
+        document.querySelector('#second-carousel .swiper-slide:nth-child(3) .food-description .text-light-black.product-price').textContent = 'R$' + data.valorProduto.toFixed(2);
+    })
+    .catch(error => console.error('Erro ao buscar o produto 8:', error));
+
         });
     </script>   
 </body>
