@@ -11,6 +11,9 @@ import com.YellowExpress.Yellowzin.Class.Pedidos;
 import com.YellowExpress.Yellowzin.Repository.PedidoRepository;
 import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
 import com.YellowExpress.Yellowzin.Repository.ProdutosRepository;
+import com.YellowExpress.Yellowzin.Utils.JwtUtil;
+
+import jakarta.servlet.http.HttpServletRequest;
 
 import java.util.List;
 import java.util.Optional;
@@ -30,13 +33,17 @@ public class PedidosAPI {
     @Autowired
     private ProdutosRepository produtosRepository;
 
-    @PostMapping("/")
-    public ResponseEntity<?> criarPedido(@Validated @RequestBody Pedidos pedido) {
-        Optional<Clientes> clienteOptional = clientesRepository.findById(pedido.getCliente().getId());
+    @PostMapping("/{token}")
+    public ResponseEntity<?> criarPedido(@Validated @RequestBody Pedidos pedido, @PathVariable String token, HttpServletRequest request) {
+        // Extrair o usuário (cliente) do token
+        String usuario = JwtUtil.getUsuarioFromToken(token);
+    
+        // Buscar o cliente associado ao usuário
+        Optional<Clientes> clienteOptional = clientesRepository.findByUsuario(usuario);
         Optional<Produtos> produtoOptional = produtosRepository.findById(pedido.getProduto().getId());
     
         if (!clienteOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cliente não encontrado com o ID: " + pedido.getCliente().getId());
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Cliente não encontrado para o token fornecido.");
         }
     
         if (!produtoOptional.isPresent()) {

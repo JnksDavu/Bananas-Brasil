@@ -10,6 +10,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.ManyToMany;
 
+import com.YellowExpress.Yellowzin.Class.Produtos;
 import com.YellowExpress.Yellowzin.Utils.PasswordUtils;
 
 @Entity

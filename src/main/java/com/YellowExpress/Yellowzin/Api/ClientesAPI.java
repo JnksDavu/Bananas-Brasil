@@ -9,7 +9,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import com.YellowExpress.Yellowzin.Class.Clientes;
+import com.YellowExpress.Yellowzin.Dto.LoginRequest;
 import com.YellowExpress.Yellowzin.Repository.ClientesRepository;
+
 import com.YellowExpress.Yellowzin.Utils.JwtUtil;
 
 @RestController
@@ -20,26 +22,10 @@ public class ClientesAPI {
     private ClientesRepository clientesRepository;
 
     @PostMapping("/")
-    public ResponseEntity<?> criarCliente(@Validated @RequestBody Clientes cliente) {
-        // Verifica se já existe um cliente com o mesmo usuário (email)
-        if (clientesRepository.existsByUsuario(cliente.getUsuario())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("E-mail já registrado");
-        }
-
+    public ResponseEntity<Clientes> criarCliente(@Validated @RequestBody Clientes cliente) {
         cliente.criarUsuarioCliente(cliente.getNome(), cliente.getSenha(), cliente.getUsuario(), cliente.getCep(), cliente.getdt_nascimento(), cliente.getGenero(), cliente.getnumero_casa());
         Clientes novoCliente = clientesRepository.save(cliente);
         return new ResponseEntity<>(novoCliente, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/login")
-    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
-        Clientes cliente = clientesRepository.findByUsuario(loginRequest.getUsuario());
-        if (cliente != null && cliente.verificarSenha(loginRequest.getSenha())) {
-            String token = JwtUtil.generateToken(cliente.getUsuario());
-            return ResponseEntity.ok(token);
-        } else {
-            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
-        }
     }
 
     @GetMapping("/{id}")
@@ -75,5 +61,16 @@ public class ClientesAPI {
 
         clientesRepository.deleteById(id);
         return ResponseEntity.noContent().build();
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<String> login(@RequestBody LoginRequest loginRequest) {
+        Clientes cliente = clientesRepository.findByUsuario(loginRequest.getUsuario()).orElse(null);
+        if (cliente != null && cliente.verificarSenha(loginRequest.getSenha())) {
+            String token = JwtUtil.generateToken(cliente.getUsuario());
+            return ResponseEntity.ok(token);
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Credenciais inválidas");
+        }
     }
 }

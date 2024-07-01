@@ -40,4 +40,9 @@ public class JwtUtil {
         Claims claims = getClaims(token);
         return claims.getExpiration().before(new Date());
     }
+
+    public static String getUsuarioFromToken(String token) {
+        Claims claims = getClaims(token);
+        return claims.getSubject();
+    }
 }
