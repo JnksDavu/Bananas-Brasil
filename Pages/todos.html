@@ -125,91 +125,42 @@
                     <h2 class="text-light-black no-margin"> Todos os itens </h2>
                 </div>
             </div>
-            <div class="shop-container product-gallery-wrapper">
-                <div class="row">
-                    <!-- começa bloco do produto -->
-                    <div class="col-lg-4 col-md-6">
-                        <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
-                            <div class="item sativa">
-                                <div class="item-inner">
-                                    <div class="item-img">
-                                        <a href="#">
-                                            <img src="../assets/img/banana.png" alt="product image">
-                                        </a>
-                                    </div>
-                                    <div class="item-info">
-                                        <h4> <a href="product-details.html">Produto</a> </h4>
-                                        <p>Descrição Produto Descrição Produto Descrição Produto Descrição Produto.</p>
-                                        <div class="item-price-wrpr">
-                                            <span class="price">R$000.00<span class="strike">R$000.00</span>
-                                            </span>
-                                            <span class="cart listing-cart">
-                                                <a href="#">
-                                                    <img src="../assets/img/cart.png" alt="img">
-                                                </a>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="item-btm">
-                                        <div class="label-wrpr thc-wrpr-level">
-                                            <div class="thc-label-wrpr">
-                                                <span class="fw-600">Gordura:</span>
-                                                <span class="text-custom-orange thc-label">45%</span>
-                                                <div class="thc-dots">
-                                                    <span class="active"></span>
-                                                    <span class="active"></span>
-                                                    <span class="active"></span>
-                                                    <span></span>
-                                                    <span></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="label-wrpr cbd-wrpr-level">
-                                            <div class="thc-label-wrpr">
-                                                <span class="fw-600">Sódio:</span>
-                                                <span class="text-custom-orange thc-label">72%</span>
-                                                <div class="thc-dots">
-                                                    <span class="active"></span>
-                                                    <span class="active"></span>
-                                                    <span class="active"></span>
-                                                    <span class="active"></span>
-                                                    <span></span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- termina bloco do produto -->
-
-                </div>
-                <div class="custom-pagination">
-                    <nav aria-label="Page navigation example">
-                        <ul class="pagination">
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Previous"> <span aria-hidden="true">&laquo;</span>
-                                    <span class="sr-only">Anterior</span>
-                                </a>
-                            </li><!-- Números pra clicar ué -->
-                            <li class="page-item active"><a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item"><a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Next"> <span aria-hidden="true">&raquo;</span>
-                                    <span class="sr-only">Próximo</span>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+            <div class="smoothie-container">
+                <div class="row" id="smoothie-container">
+                    <!-- Aqui será adicionado dinamicamente o conteúdo -->
                 </div>
             </div>
         </div>
     </section>
+    
+    <!-- Template de Produto -->
+    <template id="produto-template">
+        <div class="col-lg-4 col-md-6">
+            <div class="detail-product-image shop-container shop-container-2 mb-xl-30">
+                <div class="item sativa">
+                    <div class="item-inner">
+                        <div class="product_img">
+                            <a href="" class="product-link">
+                                <img src="" alt="product image" class="smoothie-img">
+                            </a>
+                        </div>
+                        <div class="item-info">
+                            <h4><a href="" class="product-name"></a></h4>
+                            <p class="product-description"></p>
+                            <div class="item-price-wrpr">
+                                <span class="price">R$<span class="product-price"></span></span>
+                                <span class="cart listing-cart">
+                                    <a href="#" class="add-to-cart"><!--carrinho-->
+                                        <img src="../assets/img/cart.png" alt="img">
+                                    </a>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
     <!-- Icons Start -->
     <div class="footer-top section-padding">
         <div class="container">
@@ -450,6 +401,11 @@
     <!-- organza Js -->
     <script src="../assets/js/Weedo.js"></script>
     <!-- /Place all Scripts Here -->
+    <script src="../Pages/Script/todos.js"></script>
+
+    <script src="../Pages/Script/Cart.js"></script>
+    <!--Adicionar ao carrinho-->
+    <script src="../Pages/Script/Item.js"></script>
 </body>
 
 </html>
