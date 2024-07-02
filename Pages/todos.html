@@ -56,6 +56,7 @@
                         <div class="main-search mainNavCol">
                             <form class="main-search search-form full-width">
                                 <div class="row">
+                                    
                                     <!-- search -->
                                     <div class="col-lg-6 col-md-7">
                                         <div class="search-box">
@@ -67,7 +68,13 @@
                             </form>
                         </div>
                         <div class="right-side mainNavCol">
-                            <div class="catring parent-megamenu">
+                            <div class="gem-points">
+                                <a href="todos.html">
+                                    <div class="custom-img">
+                                        <img src="../assets/img/banana.png" class="img-fluid" alt="Logo">
+                                    </div>
+                                    <span>Compre Já</span>
+                                </a>
                             </div>
                             <div class="cart-btn cart-dropdown">
                                 <a href="#" class="text-light-green fw-700">
@@ -80,7 +87,7 @@
                                     <span class="user-alert-cart">1</span>
                                 </a>
                                 <div class="cart-detail-box">
-                                    <div class="card">
+                                    <!--<div class="card">
                                         <div class="card-header padding-20">Seus Pedidos</div>
                                         <div class="card-body no-padding">
                                             <div class="cat-product-box">
@@ -106,7 +113,20 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> lógica do carrinho --> 
+                                    <div class="card">
+                                        <div class="card-header padding-20">Seus Pedidos</div>
+                                        <div class="card-body no-padding">
+                                            <div class="cat-product-box" id="cart-items">
+                                                <!-- Items will be appended here dynamically -->
+                                            </div>
+                                            <div class="item-total">
+                                                <div class="total-price border-0">
+                                                    <span class="text-dark-white fw-700">Total:</span>
+                                                    <span class="text-dark-white fw-700" id="cart-total">R$0.00</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     <div class="card-footer padding-15"> <a href="checkout.html" class="btn-first green-btn text-custom-white full-width fw-500">Seguir para o Pagamento</a>
                                     </div>
                                 </div>
@@ -145,12 +165,12 @@
                             </a>
                         </div>
                         <div class="item-info">
-                            <h4><a href="" class="product-name"></a></h4>
-                            <p class="product-description"></p>
+                            <h4><a href="" class="product-name" id="product-name"></a></h4>
+                            <p class="product-description" id="product-description"></p>
                             <div class="item-price-wrpr">
-                                <span class="price">R$<span class="product-price"></span></span>
+                                <span class="price">R$<span class="product-price" id="product-price"></span></span>
                                 <span class="cart listing-cart">
-                                    <a href="#" class="add-to-cart"><!--carrinho-->
+                                    <a href="#" class="add-to-cart" onclick="addToCart(this,3)"><!--carrinho-->
                                         <img src="../assets/img/cart.png" alt="img">
                                     </a>
                                 </span>
@@ -367,6 +387,7 @@
     <!-- Search Modal End -->
     <!-- Place all Scripts Here -->
     <!-- jQuery -->
+     
     <script src="../assets/js/jquery.min.js"></script>
     <!-- Jquery 2 -->
     <script src="../assets/js/jquery-1.12.4.min.js"></script>
