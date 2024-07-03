@@ -17,9 +17,10 @@ public class Produtos {
     private String descricaoProduto;
     private double valorProduto;
     private String uniMedida;
-    private String Categoria;
+    private String categoria;
     private String avaliacao;
     private String img;
+    private String descricaoDetalhada;
 
     @ManyToMany
     private Set<Clientes> clientes = new HashSet<>();
@@ -44,12 +45,16 @@ public class Produtos {
         return uniMedida;
     }
 
-    public String getCategoria() {
-        return Categoria;
+    public String getcategoria() {
+        return categoria;
     }
 
     public String getAvaliacao() {
         return avaliacao;
+    }
+
+    public String getDescricaoDetalhada() {
+        return descricaoDetalhada;
     }
 
     public String getImg(){
@@ -63,14 +68,15 @@ public class Produtos {
         this.id = id;
     }
     
-    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String Categoria,String avaliacao, String img){
+    public void cadastrarProduto(String nomeProduto, String descricaoProduto, double valorProduto,String uniMedida,String categoria,String avaliacao, String img, String descricaoDetalhada){
         this.nomeProduto = nomeProduto;
         this.descricaoProduto = descricaoProduto;
         this.valorProduto = valorProduto;
         this.uniMedida = uniMedida;
-        this.Categoria = Categoria;
+        this.categoria = categoria;
         this.avaliacao = avaliacao;
         this.img = img;
+        this.descricaoDetalhada = descricaoDetalhada;
     }
 
 }

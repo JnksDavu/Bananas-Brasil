@@ -37,7 +37,7 @@ class ProdutosTests {
         clientesRepository.save(cliente);
 
         Produtos produtos = new Produtos();
-        produtos.cadastrarProduto("produtosTeste", "dfddsfsdfsdf", 100, "Fabricante", "Categoria", "Unidade", "url-da-imagem");
+        produtos.cadastrarProduto("produtosTeste", "dfddsfsdfsdf", 100, "Fabricante", "Categoria", "Unidade", "url-da-imagem","Ola");
         produtosRepository.save(produtos);
 
         Produtos produtosEditada = produtosRepository.findById(produtos.getId()).orElse(null);

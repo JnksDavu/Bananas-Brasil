@@ -50,9 +50,10 @@ public class ProdutosAPI {
                 novaProdutos.getDescricaoProduto(),
                 novaProdutos.getValorProduto(),
                 novaProdutos.getUniMedida(),
-                novaProdutos.getCategoria(),
+                novaProdutos.getcategoria(),
                 novaProdutos.getAvaliacao(),
-                novaProdutos.getImg()
+                novaProdutos.getImg(),
+                novaProdutos.getDescricaoDetalhada()
             );
             Produtos produtosAtualizada = produtosRepository.save(produtosExistente);
             return ResponseEntity.ok(produtosAtualizada);
