@@ -10,7 +10,8 @@ import com.YellowExpress.Yellowzin.Class.Clientes;
 public class Produtos {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "produto_seq")
+    @SequenceGenerator(name = "produto_seq", sequenceName = "produto_sequence", allocationSize = 1)
     private Long id;
 
     private String nomeProduto;
