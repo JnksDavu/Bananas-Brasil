@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (response.ok) {
                     alert('Cadastro realizado com sucesso!');
                     form.reset();
-                    window.location.href = "../Pages/Login/Login.html";
+                    window.location.href = "../Pages/login.html";
                 } else if (response.status === 409) {
                     response.json().then(data => {
                         displayError('email', data.message || 'Usuário já existe.');
