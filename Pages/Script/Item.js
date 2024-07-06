@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const descricaoProdutoElement = document.getElementById('descricaoProduto');
         const valorProdutoElement = document.getElementById('valorProduto');
         const imgProdutoElement = document.getElementById('imgProduto');
+        const descProdutoElement = document.getElementById('descProduto');
 
         console.log('Dados do produto encontrados na sessionStorage:', produto);
 
@@ -13,6 +14,7 @@ document.addEventListener('DOMContentLoaded', function() {
         descricaoProdutoElement.textContent = produto.descricaoProduto;
         valorProdutoElement.textContent = `R$ ${produto.valorProduto.toFixed(2)}`;
         imgProdutoElement.src = produto.img;
+        descProdutoElement.textContent = produto.descricaoDetalhada;
         
     } else {
         console.error('Dados do produto não encontrados na sessionStorage.');

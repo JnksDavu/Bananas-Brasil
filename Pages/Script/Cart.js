@@ -45,7 +45,6 @@ function addToCart(buttonElement, productId) {
     saveOrderToBackend(item, productIdFromStorage);
 }
 
-
 function removeFromCart(index) {
     const item = cart[index];
 
@@ -155,60 +154,85 @@ function updateCartUI() {
     });
 }
 
+function removeCircularReferences(obj) {
+    const seen = new WeakSet();
+    return JSON.stringify(obj, function(key, value) {
+        if (typeof value === "object" && value !== null) {
+            if (seen.has(value)) {
+                return; // Remove referências circulares
+            }
+            seen.add(value);
+        }
+        return value;
+    });
+}
+
 function loadOrdersFromBackend() {
-    fetch(`http://localhost:8080/api/pedidos/${token}`)
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return response.json();
-        })
-        .then(data => {
-            // Limpa o carrinho atual
-            cart = [];
-            total = 0;
+    fetch(`http://localhost:8080/api/pedidos/client/${token}`, {
+        headers: {
+            'Authorization': 'Bearer ' + token // Adiciona o token JWT no header Authorization
+        }
+    })
+    .then(response => {
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        return response.text(); // Alterado para text() para inspecionar a resposta bruta
+    })
+    .then(text => {
+        console.log('Resposta bruta do backend:', text); // Log da resposta bruta
 
-            // Função para buscar detalhes do produto pelo ID
-            function fetchProductDetails(productId) {
-                return fetch(`http://localhost:8080/api/Produtos/${productId}`)
-                    .then(response => {
-                        if (!response.ok) {
-                            throw new Error('Network response was not ok');
-                        }
-                        return response.json();
-                    });
-            }
+        const cleanText = removeCircularReferences(JSON.parse(text)); // Remove referências circulares
+        const data = JSON.parse(cleanText); // Faz o parsing do texto limpo
+        console.log('Dados JSON parseados:', data); // Log dos dados JSON parseados
 
-            // Promessas para buscar todos os detalhes dos produtos
-            const productPromises = data.map(pedido => {
-                const productId = pedido.produto_id; // Supondo que o campo seja produto_id
-                return fetchProductDetails(productId)
-                    .then(produto => ({
-                        NOME_PRODUTO: produto.nome,
-                        DESCRICAO_PRODUTO: produto.descricao,
-                        VALOR_PRODUTO: pedido.valor_total, // Supondo que "valor_total" é o preço total do pedido
-                    }));
-            });
+        // Limpa o carrinho atual
+        cart = [];
+        total = 0;
 
-            // Executa todas as promessas em paralelo
-            Promise.all(productPromises)
-                .then(items => {
-                    // Adiciona os itens ao carrinho
-                    cart = items;
-                    // Calcula o total
-                    total = items.reduce((acc, item) => acc + item.productPrice, 0);
-                    // Atualiza a interface do carrinho
-                    updateCartUI();
-                })
-                .catch(error => {
-                    console.error('Erro ao carregar detalhes dos produtos:', error);
+        // Função para buscar detalhes do produto pelo ID
+        function fetchProductDetails(productId) {
+            return fetch(`http://localhost:8080/api/produtos/${productId}`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
                 });
-        })
-        .catch(error => {
-            console.error('Erro ao carregar pedidos do backend:', error);
+        }
+
+        // Promessas para buscar todos os detalhes dos produtos
+        const productPromises = data.map(pedido => {
+            const productId = pedido.produto.id; // Supondo que o campo seja produto.id
+            return fetchProductDetails(productId)
+                .then(produto => ({
+                    productName: produto.nomeProduto,
+                    productDescription: produto.descricaoProduto,
+                    productPrice: parseFloat(produto.valorProduto),
+                    orderId: pedido.id // Supondo que o campo seja id
+                }));
         });
+
+        // Executa todas as promessas em paralelo
+        Promise.all(productPromises)
+            .then(items => {
+                // Adiciona os itens ao carrinho
+                cart = items;
+                // Calcula o total
+                total = items.reduce((acc, item) => acc + item.productPrice, 0);
+                // Atualiza a interface do carrinho
+                updateCartUI();
+            })
+            .catch(error => {
+                console.error('Erro ao carregar detalhes dos produtos:', error);
+            });
+    })
+    .catch(error => {
+        console.error('Erro ao carregar pedidos do backend:', error);
+    });
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     loadOrdersFromBackend();
 });
+
