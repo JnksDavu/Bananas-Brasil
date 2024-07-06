@@ -11,9 +11,11 @@ public class Pedidos {
     private Long id;
 
     @ManyToOne
+    @JoinColumn(name = "cliente_id")
     private Clientes cliente;
 
     @ManyToOne
+    @JoinColumn(name = "produto_id")
     private Produtos produto;
 
     private int quantidade;
@@ -38,6 +40,7 @@ public class Pedidos {
         this.valorTotal = produto.getValorProduto() * quantidade;
         this.dataPedido = new Date();
         this.nomeCliente = cliente.getNome();
+        this.nomeProduto = produto.getNomeProduto();
     }
 
     // Getters e Setters
@@ -63,14 +66,6 @@ public class Pedidos {
 
     public void setProduto(Produtos produto) {
         this.produto = produto;
-    }
-
-    public void setNomeCliente(String nomeCliente) {
-        this.nomeCliente = nomeCliente;
-    }
-
-    public void setNomeProduto(String nomeProduto) {
-        this.nomeProduto = nomeProduto;
     }
 
     public int getQuantidade() {
@@ -103,5 +98,21 @@ public class Pedidos {
 
     public void setDataPedido(Date dataPedido) {
         this.dataPedido = dataPedido;
+    }
+
+    public String getNomeCliente() {
+        return nomeCliente;
+    }
+
+    public void setNomeCliente(String nomeCliente) {
+        this.nomeCliente = nomeCliente;
+    }
+
+    public String getNomeProduto() {
+        return nomeProduto;
+    }
+
+    public void setNomeProduto(String nomeProduto) {
+        this.nomeProduto = nomeProduto;
     }
 }
