@@ -12,6 +12,12 @@ Façam pedidos e pagamentos online;
 Acompanhem o status dos seus pedidos;
 Recebam as bananas em seus endereços.
 
+Login e Cadastro:
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/9c4b4d2e-fab6-4a06-ba74-97352517b2dd)
+
+![image](https://github.com/JnksDavu/Bananas-Brasil/assets/108496905/7dbc3794-a426-432b-9a37-049ab98b9b87)
+
 Paginá Inicial:
 
 - Novidades e Anúncios.
