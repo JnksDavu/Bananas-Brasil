@@ -1,5 +1,5 @@
 -- 1. Criar uma tabela temporária para armazenar os dados de `pedidos`
-CREATE TEMPORARY TABLE temp_pedidos AS
+--CREATE TEMPORARY TABLE temp_pedidos AS
 SELECT * FROM pedidos;
 
 -- 2. Inserir os dados de `pedidos` na tabela temporária
